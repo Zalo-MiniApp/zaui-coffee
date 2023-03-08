@@ -1,0 +1,21 @@
+{
+  "app": {
+    "title": "ZaUI Coffee",
+    "headerColor": "",
+    "textColor": "black",
+    "statusBarColor": "#ffffff",
+    "leftButton": "back"
+  },
+  "debug": false,
+  "listCSS": [],
+  "listSyncJS": [],
+  "listAsyncJS": [],
+  "pages": [
+    "/user",
+    "/form",
+    "/dynamic-route",
+    "/about",
+    "/404"
+  ],
+  "template": {}
+}

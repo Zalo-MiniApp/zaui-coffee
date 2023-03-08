@@ -1,0 +1,49 @@
+{
+  "name": "zaui-coffee",
+  "private": true,
+  "version": "1.0.0",
+  "description": "ZaUI Coffee",
+  "repository": "",
+  "license": "UNLICENSED",
+  "browserslist": [
+    "Android >= 5",
+    "IOS >= 9.3",
+    "Edge >= 15",
+    "Safari >= 9.1",
+    "Chrome >= 49",
+    "Firefox >= 31",
+    "Samsung >= 5"
+  ],
+  "scripts": {
+    "start": "zmp start",
+    "deploy": "zmp deploy",
+    "build:css": "postcss src/css/tailwind.css -o src/css/styles.css"
+  },
+  "dependencies": {
+    "@react-spring/web": "^9.6.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.2",
+    "recoil": "^0.7.7",
+    "swiper": "^9.1.0",
+    "zmp-sdk": "^2.25.0-rc.8",
+    "zmp-ui": "^1.5.6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react-refresh": "^1.3.6",
+    "autoprefixer": "^10.4.13",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.21",
+    "postcss-aspect-ratio-polyfill": "^2.0.0",
+    "postcss-cli": "^8.3.1",
+    "postcss-preset-env": "^6.7.0",
+    "sass": "^1.58.3",
+    "tailwindcss": "^3.2.7",
+    "vite": "^2.6.14",
+    "vite-tsconfig-paths": "^4.0.5"
+  }
+}

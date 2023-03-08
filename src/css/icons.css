@@ -1,0 +1,59 @@
+/* Material Icons Font (for MD theme) */
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(//h5.zdn.vn/static/fonts/MaterialIcons-Regular.eot);
+  src: local("Material Icons"), local("MaterialIcons-Regular"),
+    url(//h5.zdn.vn/static/fonts/MaterialIcons-Regular.woff2) format("woff2"),
+    url(//h5.zdn.vn/static/fonts/MaterialIcons-Regular.woff) format("woff"),
+    url(//h5.zdn.vn/static/fonts/MaterialIcons-Regular.ttf) format("truetype");
+}
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-flex;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga";
+}
+
+/* ZMP Icons Font (for iOS theme) */
+@font-face {
+  font-family: "ZMP Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("//h5.zdn.vn/static/fonts/ZMPIcons-Regular-v2.woff2") format("woff2"),
+    url("//h5.zdn.vn/static/fonts/ZMPIcons-Regular-v2.woff") format("woff"),
+    url("//h5.zdn.vn/static/fonts/ZMPIcons-Regular-v2.ttf") format("truetype");
+}
+.zmp-icons {
+  font-family: "ZMP Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-flex;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  text-align: center;
+}

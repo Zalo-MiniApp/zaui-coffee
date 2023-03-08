@@ -1,0 +1,47 @@
+.swiper-pagination.swiper-pagination-horizontal {
+  display: flex;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100px;
+  padding: 4px;
+  bottom: 12px;
+
+  >.swiper-pagination-bullet {
+    width: 4px;
+    height: 4px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.6);
+
+    &.swiper-pagination-bullet-active {
+      background: #FFFFFF;
+      transform: scale(1.5);
+    }
+  }
+}
+
+.zaui-bottom-navigation-content::after {
+  top: 0;
+}
+
+.zaui-routes {
+  height: 100%;
+}
+
+.zaui-page {
+  min-height: unset;
+}
+
+.zaui-header.no-border{
+  margin-bottom: 0;
+
+  &::after {
+    display: none;
+  }
+}
+
+.zaui-input-affix-wrapper {
+  margin: 0;
+}

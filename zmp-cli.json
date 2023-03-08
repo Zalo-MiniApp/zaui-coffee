@@ -1,0 +1,19 @@
+{
+  "cwd": "/Users/lap15182-local/Desktop/zalo/zaui-coffee",
+  "name": "ZaUI Coffee",
+  "framework": "react-typescript",
+  "cssPreProcessor": "scss",
+  "includeTailwind": true,
+  "package": "zmp-ui",
+  "stateManagement": "recoil",
+  "newProject": true,
+  "template": "single-view",
+  "theming": {
+    "customColor": false,
+    "color": "#007aff",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": false,
+    "useUiKits": true
+  }
+}
