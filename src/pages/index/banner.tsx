@@ -19,8 +19,11 @@ export const Banner: FC = () => {
         autoplay
         loop
       >
-        {[banner1, banner2, banner3, banner4, banner5].map((banner, i) => <SwiperSlide className="px-4" key={i}>
-          <img className="w-full" src={banner} />
+        {[banner1, banner2, banner3, banner4, banner5].map((banner, i) => <SwiperSlide key={i} className="px-4">
+          <Box
+            className="w-full rounded-lg aspect-[2/1] bg-cover bg-center"
+            style={{ backgroundImage: `url(${banner})` }}
+          />
         </SwiperSlide>)}
       </Swiper>
     </Box>
