@@ -18,10 +18,11 @@ export const Banner: FC = () => {
         }}
         autoplay
         loop
+        cssMode
       >
         {[banner1, banner2, banner3, banner4, banner5].map((banner, i) => <SwiperSlide key={i} className="px-4">
           <Box
-            className="w-full rounded-lg aspect-[2/1] bg-cover bg-center"
+            className="w-full rounded-lg aspect-[2/1] bg-cover bg-center bg-skeleton"
             style={{ backgroundImage: `url(${banner})` }}
           />
         </SwiperSlide>)}

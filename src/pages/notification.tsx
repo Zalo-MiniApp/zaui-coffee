@@ -1,4 +1,5 @@
 import { ListRenderer } from "components/list-renderer";
+import { StickyHeader } from "components/sticky-header";
 import React, { FC } from "react";
 import { useRecoilValue } from "recoil";
 import { notificationsState } from "state";
@@ -21,12 +22,14 @@ const NotificationList: FC = () => {
   );
 }
 
-export const NotificationPage: FC = () => {
+const NotificationPage: FC = () => {
   return (
     <Page>
-      <Header title="Thông báo" className="sticky" />
+      <StickyHeader title="Thông báo" />
       <Box height={8} />
       <NotificationList />
     </Page>
   );
 }
+
+export default NotificationPage;

@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import { getLocation, getUserInfo, showToast } from "zmp-sdk";
+import { getLocation, getPhoneNumber, getUserInfo } from "zmp-sdk";
 import coffeeIcon from 'static/category-coffee.svg';
 import matchaIcon from 'static/category-matcha.svg';
 import foodIcon from 'static/category-food.svg';
@@ -13,9 +13,10 @@ import { Category } from "types/category";
 import { Product } from "types/product";
 import { Cart } from "types/cart";
 import { Notification } from "types/notification";
-import { useSnackbar } from "zmp-ui";
 import { calculateDistance } from "utils/location";
 import { Store } from "types/delivery";
+import { calcFinalPrice } from "utils/price";
+import { wait } from "utils/async";
 
 export const userState = selector({
   key: "user",
@@ -39,40 +40,43 @@ const description = `There is a set of mock banners available <u>here</u> in thr
 
 export const productsState = selector<Product[]>({
   key: 'products',
-  get: () => [
-    { id: 1, name: 'CloudTea Thơm Dừa Đá Xay', price: 25000, image: productImage, description, categoryId: 'coffee' },
-    { id: 2, name: 'Đồ uống CANADA DRY siêu mát lạnh', price: 57000, image: productImage, description, categoryId: 'coffee' },
-    { id: 3, name: 'CloudTea Thơm Dừa Đá Xay', price: 25000, image: productImage, description, categoryId: 'coffee' },
-    { id: 4, name: 'Hi-Tea Phúc Bồn Tử Mandarin', price: 50000, image: productImage, description, categoryId: 'coffee' },
-    { id: 5, name: 'CloudTea Thơm Dừa Đá Xay', price: 25000, image: productImage, description, categoryId: 'coffee' },
-    { id: 6, name: 'Hi-Tea Phúc Bồn Tử Mandarin', price: 50000, image: productImage, description, categoryId: 'coffee' },
-    { id: 7, name: 'CloudTea Thơm Dừa Đá Xay', price: 25000, image: productImage, description, categoryId: 'coffee' },
-    { id: 8, name: 'Hi-Tea Phúc Bồn Tử Mandarin', price: 50000, image: productImage, description, categoryId: 'coffee' },
-    {
-      id: 9,
-      name: 'CloudTea Thơm Dừa Đá Xay',
-      image: productImage,
-      price: 25000,
-      sale: {
-        type: 'percent',
-        percent: 0.2
+  get: async () => {
+    await wait(3000);
+    return [
+      { id: 1, name: 'CloudTea Thơm Dừa Đá Xay', price: 25000, image: productImage, description, categoryId: 'coffee' },
+      { id: 2, name: 'Đồ uống CANADA DRY siêu mát lạnh', price: 57000, image: productImage, description, categoryId: 'coffee' },
+      { id: 3, name: 'CloudTea Thơm Dừa Đá Xay', price: 25000, image: productImage, description, categoryId: 'coffee' },
+      { id: 4, name: 'Hi-Tea Phúc Bồn Tử Mandarin', price: 50000, image: productImage, description, categoryId: 'coffee' },
+      { id: 5, name: 'CloudTea Thơm Dừa Đá Xay', price: 25000, image: productImage, description, categoryId: 'coffee' },
+      { id: 6, name: 'Hi-Tea Phúc Bồn Tử Mandarin', price: 50000, image: productImage, description, categoryId: 'coffee' },
+      { id: 7, name: 'CloudTea Thơm Dừa Đá Xay', price: 25000, image: productImage, description, categoryId: 'coffee' },
+      { id: 8, name: 'Hi-Tea Phúc Bồn Tử Mandarin', price: 50000, image: productImage, description, categoryId: 'coffee' },
+      {
+        id: 9,
+        name: 'CloudTea Thơm Dừa Đá Xay',
+        image: productImage,
+        price: 25000,
+        sale: {
+          type: 'percent',
+          percent: 0.2
+        },
+        description,
+        categoryId: 'coffee'
       },
-      description,
-      categoryId: 'coffee'
-    },
-    {
-      id: 10,
-      name: 'Đồ uống CANADA DRY siêu mát lạnh',
-      image: productImage,
-      price: 57000,
-      sale: {
-        type: 'fixed',
-        amount: 7000
+      {
+        id: 10,
+        name: 'Đồ uống CANADA DRY siêu mát lạnh',
+        image: productImage,
+        price: 57000,
+        sale: {
+          type: 'fixed',
+          amount: 7000
+        },
+        description,
+        categoryId: 'coffee'
       },
-      description,
-      categoryId: 'coffee'
-    },
-  ]
+    ]
+  }
 })
 
 export const recommendProductsState = selector<Product[]>({
@@ -114,7 +118,7 @@ export const totalPriceState = selector({
   key: 'totalPrice',
   get: ({ get }) => {
     const cart = get(cartState);
-    return cart.reduce((total, item) => total + item.quantity * item.product.price, 0);
+    return cart.reduce((total, item) => total + item.quantity * calcFinalPrice(item.product), 0);
   }
 })
 
@@ -125,12 +129,12 @@ export const notificationsState = atom<Notification[]>({
       id: 1,
       image: logo,
       title: 'Chào bạn mới',
-      content: 'Cảm ơn đã sử dụng ZCoffee, bạn có thể dùng ứng dụng này để tiết kiệm thời gian xây dựng'
+      content: 'Cảm ơn đã sử dụng ZaUI Coffee, bạn có thể dùng ứng dụng này để tiết kiệm thời gian xây dựng'
     }, {
       id: 2,
       image: logo,
       title: 'Giảm 50% lần đầu mua hàng',
-      content: 'Nhập WELCOMEZCOFFEE để được giảm 50% giá trị đơn hàng đầu tiên order'
+      content: 'Nhập WELCOME để được giảm 50% giá trị đơn hàng đầu tiên order'
     }
   ]
 })
@@ -147,10 +151,6 @@ export const resultState = selector<Product[]>({
     const products = get(productsState);
     return products.filter(product => product.name.trim().toLowerCase().includes(keyword.trim().toLowerCase()));
   }
-})
-
-export const locationState = atom<{ latitude: string, longitude: string }>({
-  key: 'location',
 })
 
 export const storesState = atom<Store[]>({
@@ -204,15 +204,19 @@ export const nearbyStoresState = selector({
     const stores = get(storesState);
 
     // Calculate the distance of each store from the current location
-    const storesWithDistance = stores.map((store) => ({
-      ...store,
-      distance: calculateDistance(location.latitude, location.longitude, store.lat, store.long)
-    }));
+    if (location) {
+      const storesWithDistance = stores.map((store) => ({
+        ...store,
+        distance: calculateDistance(location.latitude, location.longitude, store.lat, store.long)
+      }));
 
-    // Sort the stores by distance from the current location
-    const nearbyStores = storesWithDistance.sort((a, b) => a.distance - b.distance);
+      // Sort the stores by distance from the current location
+      const nearbyStores = storesWithDistance.sort((a, b) => a.distance - b.distance);
 
-    return nearbyStores;
+      return nearbyStores;
+    } else {
+      return stores;
+    }
   }
 })
 
@@ -226,6 +230,47 @@ export const selectedDeliveryTimeState = atom({
   default: +new Date()
 })
 
-export const phoneState = atom({
-  key: 'phone'
+export const retryRequestPhoneState = atom({
+  key: 'retryRequestPhone',
+  default: 0
+})
+
+export const locationState = selector<{ latitude: string, longitude: string } | false>({
+  key: 'location',
+  get: async () => {
+    try {
+      const { latitude, longitude, token } = await getLocation({});
+      if (latitude && longitude) {
+        return { latitude, longitude }
+      };
+      console.warn('Sử dụng token này để truy xuất vị trí chính xác của người dùng', token);
+      console.warn('Chi tiết tham khảo: ', 'https://mini.zalo.me/blog/thong-bao-thay-doi-luong-truy-xuat-thong-tin-nguoi-dung-tren-zalo-mini-app');
+      console.warn('Giả lập vị trí mặc định: VNG Campus');
+      return {
+        latitude: '10.7287',
+        longitude: '106.7317'
+      }
+    } catch (error) {
+      return false;
+    }
+  }
+})
+
+export const phoneState = selector<string | boolean>({
+  key: 'phone',
+  get: async ({ get }) => {
+    try {
+      get(retryRequestPhoneState);
+      const { number, token } = await getPhoneNumber({});
+      if (number) {
+        return number;
+      };
+      console.warn('Sử dụng token này để truy xuất số điện thoại của người dùng', token);
+      console.warn('Chi tiết tham khảo: ', 'https://mini.zalo.me/blog/thong-bao-thay-doi-luong-truy-xuat-thong-tin-nguoi-dung-tren-zalo-mini-app');
+      console.warn('Giả lập số điện thoại mặc định: 0337076898');
+      return '0337076898';
+    } catch (error) {
+      return false;
+    }
+  }
 })

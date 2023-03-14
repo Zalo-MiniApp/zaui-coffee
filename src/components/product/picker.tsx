@@ -3,8 +3,8 @@ import React, { FC, ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useSetRecoilState } from "recoil";
 import { cartState } from "state";
-import { CartItem } from "types/cart";
 import { Product } from "types/product";
+import { offConfirmToExit, onConfirmToExit } from "zmp-sdk";
 import { Box, Button, Sheet, Text } from "zmp-ui";
 import { QuantityPicker } from "./quantity-picker";
 import { Size, SizePicker } from "./size-picker";
@@ -73,7 +73,7 @@ export const ProductPicker: FC<ProductPickerProps> = ({ children, product, selec
         close: () => setVisible(false)
       })}
       {createPortal(
-        <Sheet visible={visible} onClose={() => setVisible(false)}>
+        <Sheet visible={visible} onClose={() => setVisible(false)} autoHeight>
           {product && <Box className="space-y-6 mt-2" p={4}>
             <Box className="space-y-2">
               <Text.Title>{product.name}</Text.Title>

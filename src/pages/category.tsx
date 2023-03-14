@@ -1,4 +1,5 @@
 import { ProductItem } from "components/product/item";
+import { StickyHeader } from "components/sticky-header";
 import React, { FC, Suspense } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { categoriesState, productsByCategoryState, selectedCategoryIdState } from "state";
@@ -14,6 +15,11 @@ const CategoryPicker: FC = () => {
         variant="secondary"
         className="flex-none min-w-0"
         type={selectedCategoryId === category.id ? "highlight" : "neutral"}
+        ref={((el) => {
+          if (selectedCategoryId === category.id && el) {
+            (el as HTMLButtonElement).scrollIntoView();
+          }
+        }) as any}
         onClick={() => setSelectedCategoryId(category.id)}
       >
         {category.name}
@@ -39,18 +45,20 @@ const CategoryProducts: FC = () => {
   );
 }
 
-export const CategoryPage: FC = () => {
+const CategoryPage: FC = () => {
   return (
-    <Page>
-      <Header title="Danh mục" className="sticky" />
-      <Box>
-        <Suspense>
+    <Page className="flex flex-col">
+      <StickyHeader title="Danh mục" className="flex-none" />
+      <Suspense>
+        <Box className="flex-none">
           <CategoryPicker />
-        </Suspense>
-        <Suspense>
+        </Box>
+        <Box className="flex-1 overflow-y-auto">
           <CategoryProducts />
-        </Suspense>
-      </Box>
+        </Box>
+      </Suspense>
     </Page>
   );
 }
+
+export default CategoryPage;

@@ -1,16 +1,21 @@
+import { StickyHeader } from "components/sticky-header";
 import React, { FC } from "react";
 import { Page } from "zmp-ui";
 import { Inquiry } from "./inquiry";
-import { NoAnimationHeader } from "./no-animation-header";
 import { SearchResult } from "./result";
 
-export const SearchPage: FC = () => {
+const SearchPage: FC = () => {
 
   return (
     <Page className="flex flex-col">
-      <NoAnimationHeader />
+      <StickyHeader
+        title="Tìm kiếm"
+        className="flex-none"
+      />
       <Inquiry />
       <SearchResult />
     </Page>
   );
 }
+
+export default SearchPage;

@@ -18,7 +18,7 @@ export const Categories: FC = () => {
 
   return (
     <Box className="bg-white grid grid-cols-4 gap-4 p-4">
-      {categories.map((category, i) => <div key={i} onClick={() => gotoCategory(category.id)}>
+      {categories.map((category, i) => <div key={i} onClick={() => gotoCategory(category.id)} className="flex flex-col gap-2 items-center">
         <img className="w-12 h-12" src={category.icon} />
         <Text size="xxSmall" className="text-gray">{category.name}</Text>
       </div>)}

@@ -1,13 +1,14 @@
+import { StickyHeader } from "components/sticky-header";
 import React, { FC } from "react";
 import { Box, Header, Page, Text } from "zmp-ui";
 import { CartItems } from "./cart-items";
 import { Delivery } from "./delivery";
 import { CartPreview } from "./preview";
 
-export const CartPage: FC = () => {
+const CartPage: FC = () => {
   return (
     <Page>
-      <Header title="Giỏ hàng" className="sticky" />
+      <StickyHeader title="Giỏ hàng" />
       <CartItems />
       <Text.Header className="px-4">Hình thức nhận hàng</Text.Header>
       <Delivery />
@@ -17,3 +18,5 @@ export const CartPage: FC = () => {
     </Page>
   );
 }
+
+export default CartPage;
