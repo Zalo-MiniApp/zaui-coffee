@@ -11,10 +11,17 @@ import "./css/app.scss";
 // Import App Component
 import App from "./components/app";
 import appConfig from "../app-config.json";
+import { configAppView } from "zmp-sdk";
 
 if (!window.APP_CONFIG) {
   window.APP_CONFIG = appConfig;
 }
+
+configAppView({
+  hideAndroidBottomNavigationBar: true,
+  hideIOSSafeAreaBottom: true,
+  statusBarType: "transparent"
+})
 
 // Mount React App
 const root = createRoot(document.getElementById("app")!);

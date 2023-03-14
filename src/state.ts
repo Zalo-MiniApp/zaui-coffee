@@ -146,9 +146,10 @@ export const keywordState = atom({
 
 export const resultState = selector<Product[]>({
   key: 'result',
-  get: ({ get }) => {
+  get: async ({ get }) => {
     const keyword = get(keywordState);
     const products = get(productsState);
+    await wait(1000);
     return products.filter(product => product.name.trim().toLowerCase().includes(keyword.trim().toLowerCase()));
   }
 })

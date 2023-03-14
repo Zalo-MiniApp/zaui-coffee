@@ -1,11 +1,12 @@
 import { FinalPrice } from "components/display/final-price";
 import { ProductPicker } from "components/product/picker";
-import React, { FC } from "react";
+import { ProductSearchResultSkeleton } from "components/skeletons";
+import React, { FC, Suspense } from "react";
 import { useRecoilValue } from "recoil";
 import { resultState } from "state";
 import { Box, Text } from "zmp-ui";
 
-export const SearchResult: FC = () => {
+const SearchResultContent: FC = () => {
   const result = useRecoilValue(resultState);
   return (
     <Box flex flexDirection="column" className="bg-background flex-1 min-h-0">
@@ -25,4 +26,22 @@ export const SearchResult: FC = () => {
       </Box>}
     </Box>
   );
+}
+
+const SearchResultFallback: FC = () => {
+  const result = [...new Array(5)];
+  return (
+    <Box flex flexDirection="column" className="bg-background flex-1 min-h-0">
+      <Text.Title className="p-4 pt-0" size="small">Kết quả</Text.Title>
+      <Box className="p-4 pt-0 space-y-4 flex-1 overflow-y-auto">
+        {result.map((_, i) => <ProductSearchResultSkeleton key={i} />)}
+      </Box>
+    </Box>
+  );
+}
+
+export const SearchResult: FC = () => {
+  return <Suspense fallback={<SearchResultFallback />}>
+    <SearchResultContent />
+  </Suspense>
 }

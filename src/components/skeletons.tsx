@@ -41,3 +41,15 @@ export const ProductSlideSkeleton: FC = () => {
     </div>
   );
 }
+
+export const ProductSearchResultSkeleton: FC = () => {
+  return (
+    <div className="flex items-center gap-4">
+      <ImageSkeleton className="w-[88px] h-[88px] rounded-lg" />
+      <Box className="space-y-2">
+        <TextSkeleton>1234567890</TextSkeleton>
+        <TextSkeleton size="xSmall">25,000đ</TextSkeleton>
+      </Box>
+    </div>
+  );
+}
