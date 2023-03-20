@@ -10,7 +10,7 @@ const SearchResultContent: FC = () => {
   const result = useRecoilValue(resultState);
   return (
     <Box flex flexDirection="column" className="bg-background flex-1 min-h-0">
-      <Text.Title className="p-4 pt-0" size="small">Kết quả</Text.Title>
+      <Text.Title className="p-4 pt-0" size="small">Kết quả ({result.length})</Text.Title>
       {result.length > 0 ? <Box className="p-4 pt-0 space-y-4 flex-1 overflow-y-auto">
         {result.map(product => <ProductPicker key={product.id} product={product}>
           {({ open }) => <div onClick={open} className="flex items-center gap-4">
@@ -21,7 +21,7 @@ const SearchResultContent: FC = () => {
             </Box>
           </div>}
         </ProductPicker>)}
-      </Box> : <Box className="py-10 text-center">
+      </Box> : <Box className="flex-1 flex justify-center items-center pb-24">
         <Text size="xSmall" className="text-gray">Không tìm thấy kết quả. Vui lòng thử lại</Text>
       </Box>}
     </Box>
@@ -32,7 +32,7 @@ const SearchResultFallback: FC = () => {
   const result = [...new Array(5)];
   return (
     <Box flex flexDirection="column" className="bg-background flex-1 min-h-0">
-      <Text.Title className="p-4 pt-0" size="small">Kết quả</Text.Title>
+      <Text.Title className="p-4 pt-0" size="small">Đang tìm kiếm...</Text.Title>
       <Box className="p-4 pt-0 space-y-4 flex-1 overflow-y-auto">
         {result.map((_, i) => <ProductSearchResultSkeleton key={i} />)}
       </Box>

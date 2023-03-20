@@ -147,6 +147,9 @@ export const resultState = selector<Product[]>({
   key: 'result',
   get: async ({ get }) => {
     const keyword = get(keywordState);
+    if (!keyword.trim()) {
+      return [];
+    }
     const products = get(productsState);
     await wait(1000);
     return products.filter(product => product.name.trim().toLowerCase().includes(keyword.trim().toLowerCase()));
