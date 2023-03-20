@@ -29,8 +29,8 @@
     "react-router-dom": "^6.8.2",
     "recoil": "^0.7.7",
     "swiper": "^9.1.0",
-    "zmp-sdk": "^2.25.0-rc.8",
-    "zmp-ui": "file:../zaui"
+    "zmp-sdk": "^2.25.1-rc.12",
+    "zmp-ui": "^1.6.0-rc.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

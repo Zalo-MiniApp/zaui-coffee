@@ -9,21 +9,17 @@
   padding: 4px;
   bottom: 12px;
 
-  >.swiper-pagination-bullet {
+  > .swiper-pagination-bullet {
     width: 4px;
     height: 4px;
     margin: 0;
     background: rgba(255, 255, 255, 0.6);
 
     &.swiper-pagination-bullet-active {
-      background: #FFFFFF;
+      background: #ffffff;
       transform: scale(1.5);
     }
   }
-}
-
-.zaui-bottom-navigation-content::after {
-  top: 0;
 }
 
 .zaui-routes {
@@ -34,7 +30,7 @@
   min-height: unset;
 }
 
-.zaui-header.no-border{
+.zaui-header.no-border {
   margin-bottom: 0;
 
   &::after {
@@ -55,5 +51,27 @@
 }
 
 .app-header {
-  z-index: 2000;
+  padding-top: calc(var(--zaui-safe-area-inset-top, 0px) + 10px);
+  height: auto;
+}
+
+.category-tabs {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .zaui-tabs-tabbar {
+    flex: none;
+  }
+  .zaui-tab-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+  }
+  .zaui-tab {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
 }

@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom, selector, selectorFamily } from "recoil";
 import { getLocation, getPhoneNumber, getUserInfo } from "zmp-sdk";
 import coffeeIcon from 'static/category-coffee.svg';
 import matchaIcon from 'static/category-matcha.svg';
@@ -92,10 +92,9 @@ export const selectedCategoryIdState = atom({
   default: 'coffee'
 })
 
-export const productsByCategoryState = selector<Product[]>({
+export const productsByCategoryState = selectorFamily<Product[], string>({
   key: 'productsByCategory',
-  get: ({ get }) => {
-    const categoryId = get(selectedCategoryIdState);
+  get: (categoryId) => ({ get }) => {
     const allProducts = get(productsState);
     return allProducts.filter(product => product.categoryId === categoryId);
   }

@@ -1,11 +1,11 @@
 import { FinalPrice } from "components/display/final-price";
+import { Sheet } from "components/fullscreen-sheet";
 import React, { FC, ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useSetRecoilState } from "recoil";
 import { cartState } from "state";
 import { Product } from "types/product";
-import { offConfirmToExit, onConfirmToExit } from "zmp-sdk";
-import { Box, Button, Sheet, Text } from "zmp-ui";
+import { Box, Button, Text } from "zmp-ui";
 import { QuantityPicker } from "./quantity-picker";
 import { Size, SizePicker } from "./size-picker";
 

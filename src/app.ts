@@ -2,8 +2,8 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 import "zmp-ui/zaui.css";
 import "./css/tailwind.css";
 import "./css/app.scss";
@@ -20,8 +20,8 @@ if (!window.APP_CONFIG) {
 configAppView({
   hideAndroidBottomNavigationBar: true,
   hideIOSSafeAreaBottom: true,
-  statusBarType: "transparent"
-})
+  statusBarType: "transparent",
+});
 
 // Mount React App
 const root = createRoot(document.getElementById("app")!);

@@ -1,10 +1,10 @@
+import { ActionSheet } from "components/fullscreen-sheet";
 import React, { FC, useEffect, useState } from "react";
 import { useRecoilState, useRecoilValueLoadable } from "recoil";
-import { nearbyStoresState, selectedStoreState, storesState } from "state";
+import { nearbyStoresState, selectedStoreState } from "state";
 import { Store } from "types/delivery";
 import { displayDistance } from "utils/location";
-import { Box, Icon, Sheet, Text } from "zmp-ui";
-
+import { Box, Icon, Text } from "zmp-ui";
 
 export const StorePicker: FC = () => {
   const [visible, setVisible] = useState(false);
@@ -33,7 +33,7 @@ export const StorePicker: FC = () => {
         </Box>
         <Icon icon="zi-chevron-right" />
       </Box>
-      {nearbyStores.state === 'hasValue' && <Sheet.Actions
+      {nearbyStores.state === 'hasValue' && <ActionSheet
         title="Các cửa hàng ở gần bạn"
         visible={visible}
         onClose={() => setVisible(false)}
@@ -52,7 +52,7 @@ export const StorePicker: FC = () => {
           ]
         }
       >
-      </Sheet.Actions>}
+      </ActionSheet>}
     </>
   );
 }
