@@ -7,13 +7,14 @@
       "type": "color",
       "optional": true
     },
-    "serviceFee": {
-      "title": "Service Fee",
-      "description": "Fixed amount needed to be paid on each order",
-      "type": "number"
+    "currencySymbol": {
+      "title": "Currency Symbol",
+      "type": "string",
+      "default": "đ"
     },
-    "searchBar": {
-      "title": "Enable search bar",
+    "prefixCurrencySymbol": {
+      "title": "Put currency symbol before the money amount",
+      "description": "Enable this option if the currency symbol should be written before the number (e.g. $5), or disable if the symbol should be written after the number (e.g. 5đ).",
       "type": "boolean"
     }
   }

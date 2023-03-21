@@ -109,6 +109,37 @@ You can change the primary and the secondary color theme by setting the colors i
 },
 ```
 
+### Load product list from server
+
+<img src="./docs/products-fetching.webp" alt="Products fetching" width="250" align="right">
+
+Just update the `productsState` selector in `src/state.ts` to use `fetch` and make an HTTP GET request to your server.
+
+If the returned JSON structure is different from the template, you would need to map your product object to the corresponding `Product` interface. For example:
+
+```ts
+export const productsState = selector<Product[]>({
+  key: "products",
+  get: async () => {
+    const response = await fetch("https://dummyjson.com/products");
+    const data = await response.json();
+    return data.products.map(
+      ({ id, title, price, images, description, category }) =>
+        <Product>{
+          id,
+          name: title,
+          price: price,
+          image: images[0],
+          description,
+          categoryId: category,
+        }
+    );
+  },
+});
+```
+
+Feel free to create another `service` layer and put the network fetching logics inside. This template just provides the UI layer, you can customize the logic anyway you want.
+
 ## License
 
 Copyright (c) Zalo Group. and its affiliates. All rights reserved.

@@ -18,6 +18,8 @@
     "/404"
   ],
   "template": {
-    "primaryColor": "#006af5"
+    "primaryColor": "#006af5",
+    "prefixCurrencySymbol": false,
+    "currencySymbol": "đ"
   }
 }
