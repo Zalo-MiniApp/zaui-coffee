@@ -41,7 +41,7 @@ const description = `There is a set of mock banners available <u>here</u> in thr
 export const productsState = selector<Product[]>({
   key: 'products',
   get: async () => {
-    await wait(3000);
+    await wait(2000);
     return [
       { id: 1, name: 'CloudTea Thơm Dừa Đá Xay', price: 25000, image: productImage, description, categoryId: 'coffee' },
       { id: 2, name: 'Đồ uống CANADA DRY siêu mát lạnh', price: 57000, image: productImage, description, categoryId: 'coffee' },
@@ -151,7 +151,7 @@ export const resultState = selector<Product[]>({
       return [];
     }
     const products = get(productsState);
-    await wait(1000);
+    await wait(500);
     return products.filter(product => product.name.trim().toLowerCase().includes(keyword.trim().toLowerCase()));
   }
 })

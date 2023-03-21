@@ -1,7 +1,7 @@
 import React, { FC, useMemo, useState } from "react";
 import { useRecoilState } from "recoil";
 import { selectedDeliveryTimeState } from "state";
-import { displayDate, displayTime, displayTimeRange } from "utils/date";
+import { displayDate, displayHalfAnHourTimeRange } from "utils/date";
 import { Picker } from "zmp-ui";
 
 export const TimePicker: FC = () => {
@@ -57,7 +57,7 @@ export const TimePicker: FC = () => {
       value={{ time, date }}
       formatPickedValueDisplay={
         ({ date, time }) => (date && time) ?
-          `${displayTimeRange(new Date(time.value), 30)}, ${displayDate(new Date(date.value))}`
+          `${displayHalfAnHourTimeRange(new Date(time.value))}, ${displayDate(new Date(date.value))}`
           : `Chọn thời gian`
       }
       onChange={({ date, time }) => {
@@ -71,7 +71,7 @@ export const TimePicker: FC = () => {
       data={[
         {
           options: availableTimes.map((time, i) => ({
-            displayName: displayTimeRange(time, 30),
+            displayName: displayHalfAnHourTimeRange(time),
             value: +time
           })),
           name: "time",

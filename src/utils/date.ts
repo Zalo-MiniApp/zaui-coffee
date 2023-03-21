@@ -13,7 +13,7 @@ export function displayTime(date: Date) {
   return `${hours}h${minutes}`;
 }
 
-export function displayTimeRange(date: Date, minutes: number) {
+export function displayHalfAnHourTimeRange(date: Date) {
   const endTime = new Date(date);
   endTime.setMinutes(endTime.getMinutes() + 30);
   return `${displayTime(date)} - ${displayTime(endTime)}`;

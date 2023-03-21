@@ -17,5 +17,7 @@
     "/about",
     "/404"
   ],
-  "template": {}
+  "template": {
+    "primaryColor": "#006af5"
+  }
 }

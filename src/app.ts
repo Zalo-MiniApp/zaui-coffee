@@ -11,7 +11,7 @@ import "./css/app.scss";
 // Import App Component
 import App from "./components/app";
 import appConfig from "../app-config.json";
-import { configAppView } from "zmp-sdk";
+import { configAppView, getSystemInfo } from "zmp-sdk";
 
 if (!window.APP_CONFIG) {
   window.APP_CONFIG = appConfig;
@@ -21,6 +21,19 @@ configAppView({
   hideAndroidBottomNavigationBar: true,
   hideIOSSafeAreaBottom: true,
   statusBarType: "transparent",
+  success: () => {
+    document.documentElement.classList.add("fullscreen");
+    if (getSystemInfo().platform === "android") {
+      const androidSafeTop = Math.round(
+        (window as any).ZaloJavaScriptInterface.getStatusBarHeight() /
+          window.devicePixelRatio
+      );
+      document.body.style.setProperty(
+        "--zaui-safe-area-inset-top",
+        `${androidSafeTop}px`
+      );
+    }
+  },
 });
 
 // Mount React App

@@ -80,7 +80,7 @@ export const ProductPicker: FC<ProductPickerProps> = ({ children, product, selec
               <Text><FinalPrice>{product}</FinalPrice></Text>
               <Text><div dangerouslySetInnerHTML={{ __html: product.description ?? '' }}></div></Text>
             </Box>
-            <Box className="space-y-4">
+            <Box className="space-y-5">
               <SizePicker value={size} onChange={setSize} />
               <QuantityPicker value={quantity} onChange={setQuantity} />
               {selected ? <Button variant={quantity > 0 ? "primary" : "secondary"} type={quantity > 0 ? "highlight" : "neutral"} fullWidth onClick={addToCart}>

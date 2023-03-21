@@ -1,0 +1,20 @@
+{
+  "name": "ZaUI Coffee",
+  "options": {
+    "primaryColor": {
+      "title": "Primary Color",
+      "description": "Buttons, links, icons, highlited items color,...",
+      "type": "color",
+      "optional": true
+    },
+    "serviceFee": {
+      "title": "Service Fee",
+      "description": "Fixed amount needed to be paid on each order",
+      "type": "number"
+    },
+    "searchBar": {
+      "title": "Enable search bar",
+      "type": "boolean"
+    }
+  }
+}

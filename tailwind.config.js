@@ -6,12 +6,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#0250B6",
+        primary: "var(--zmp-primary-color)",
         gray: "#767A7F",
-        green: '#288F4E',
-        background: '#ffffff',
-        skeleton: 'rgba(0, 0, 0, 0.1)'
-      }
+        green: "#288F4E",
+        background: "#ffffff",
+        skeleton: "rgba(0, 0, 0, 0.1)",
+      },
     },
   },
 };

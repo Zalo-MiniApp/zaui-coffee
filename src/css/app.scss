@@ -1,3 +1,29 @@
+:root {
+  --zmp-primary-color: #0068ff;
+}
+.zaui-btn-tertiary,
+.zaui-btn-tertiary.zaui-btn-highlight,
+.zaui-bottom-navigation-item-active {
+  color: var(--zmp-primary-color);
+}
+
+.zaui-btn-primary,
+.zaui-btn-primary.zaui-btn-highlight,
+.zaui-radio-checked .zaui-radio-checkmark,
+.zaui-btn-primary:active,
+.zaui-btn-primary.zaui-btn-highlight:active,
+.zaui-btn-primary:focus-visible,
+.zaui-btn-primary.zaui-btn-highlight:focus-visible {
+  background-color: var(--zmp-primary-color);
+}
+
+.zaui-btn-primary:active,
+.zaui-btn-primary.zaui-btn-highlight:active,
+.zaui-btn-primary:focus-visible,
+.zaui-btn-primary.zaui-btn-highlight:focus-visible {
+  opacity: 0.9;
+}
+
 .swiper-pagination.swiper-pagination-horizontal {
   display: flex;
   gap: 4px;
