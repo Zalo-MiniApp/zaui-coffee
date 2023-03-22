@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { Box, Header, Icon, Page, Text } from "zmp-ui";
-import subscriptionDecor from 'static/subscription-decor.svg';
+import { Box, Icon, Page, Text } from "zmp-ui";
+import subscriptionDecor from "static/subscription-decor.svg";
 import { ListRenderer } from "components/list-renderer";
 import { StickyHeader } from "components/sticky-header";
 
@@ -11,8 +11,8 @@ const Subscription: FC = () => {
         className="bg-green text-white rounded-xl p-4 space-y-2"
         style={{
           backgroundImage: `url(${subscriptionDecor})`,
-          backgroundPosition: 'right 8px center',
-          backgroundRepeat: 'no-repeat'
+          backgroundPosition: "right 8px center",
+          backgroundRepeat: "no-repeat",
         }}
       >
         <Text.Title className="font-bold">Đăng ký thành viên</Text.Title>
@@ -20,7 +20,7 @@ const Subscription: FC = () => {
       </Box>
     </Box>
   );
-}
+};
 
 const Personal: FC = () => {
   return (
@@ -30,25 +30,33 @@ const Personal: FC = () => {
         items={[
           {
             left: <Icon icon="zi-user" />,
-            right: <Box flex>
-              <Text.Header className="flex-1 items-center font-normal">Thông tin tài khoản</Text.Header>
-              <Icon icon="zi-chevron-right" />
-            </Box>
+            right: (
+              <Box flex>
+                <Text.Header className="flex-1 items-center font-normal">
+                  Thông tin tài khoản
+                </Text.Header>
+                <Icon icon="zi-chevron-right" />
+              </Box>
+            ),
           },
           {
             left: <Icon icon="zi-clock-2" />,
-            right: <Box flex>
-              <Text.Header className="flex-1 items-center font-normal">Lịch sử đơn hàng</Text.Header>
-              <Icon icon="zi-chevron-right" />
-            </Box>
-          }
+            right: (
+              <Box flex>
+                <Text.Header className="flex-1 items-center font-normal">
+                  Lịch sử đơn hàng
+                </Text.Header>
+                <Icon icon="zi-chevron-right" />
+              </Box>
+            ),
+          },
         ]}
-        renderLeft={item => item.left}
-        renderRight={item => item.right}
+        renderLeft={(item) => item.left}
+        renderRight={(item) => item.right}
       />
     </Box>
   );
-}
+};
 
 const Other: FC = () => {
   return (
@@ -58,25 +66,33 @@ const Other: FC = () => {
         items={[
           {
             left: <Icon icon="zi-star" />,
-            right: <Box flex>
-              <Text.Header className="flex-1 items-center font-normal">Đánh giá đơn hàng</Text.Header>
-              <Icon icon="zi-chevron-right" />
-            </Box>
+            right: (
+              <Box flex>
+                <Text.Header className="flex-1 items-center font-normal">
+                  Đánh giá đơn hàng
+                </Text.Header>
+                <Icon icon="zi-chevron-right" />
+              </Box>
+            ),
           },
           {
             left: <Icon icon="zi-call" />,
-            right: <Box flex>
-              <Text.Header className="flex-1 items-center font-normal">Liên hệ và góp ý</Text.Header>
-              <Icon icon="zi-chevron-right" />
-            </Box>
-          }
+            right: (
+              <Box flex>
+                <Text.Header className="flex-1 items-center font-normal">
+                  Liên hệ và góp ý
+                </Text.Header>
+                <Icon icon="zi-chevron-right" />
+              </Box>
+            ),
+          },
         ]}
-        renderLeft={item => item.left}
-        renderRight={item => item.right}
+        renderLeft={(item) => item.left}
+        renderRight={(item) => item.right}
       />
     </Box>
   );
-}
+};
 
 const ProfilePage: FC = () => {
   return (
@@ -87,6 +103,6 @@ const ProfilePage: FC = () => {
       <Other />
     </Page>
   );
-}
+};
 
 export default ProfilePage;

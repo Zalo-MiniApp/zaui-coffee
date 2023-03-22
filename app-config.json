@@ -4,7 +4,12 @@
     "headerColor": "",
     "textColor": "black",
     "statusBarColor": "#ffffff",
-    "leftButton": "back"
+    "leftButton": "none",
+    "statusBar": "transparent",
+    "selfControlLoading": false,
+    "hideAndroidBottomNavigationBar": true,
+    "hideIOSSafeAreaBottom": true,
+    "actionBarHidden": false
   },
   "debug": false,
   "listCSS": [],
