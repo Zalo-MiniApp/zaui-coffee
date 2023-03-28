@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { Box, Icon, Page, Text } from "zmp-ui";
 import subscriptionDecor from "static/subscription-decor.svg";
 import { ListRenderer } from "components/list-renderer";
-import { StickyHeader } from "components/sticky-header";
 
 const Subscription: FC = () => {
   return (
@@ -96,8 +95,7 @@ const Other: FC = () => {
 
 const ProfilePage: FC = () => {
   return (
-    <Page>
-      <StickyHeader />
+    <Page title=" ">
       <Subscription />
       <Personal />
       <Other />

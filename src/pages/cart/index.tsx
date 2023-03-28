@@ -1,14 +1,12 @@
-import { StickyHeader } from "components/sticky-header";
 import React, { FC } from "react";
-import { Box, Header, Page, Text } from "zmp-ui";
+import { Box, Page, Text } from "zmp-ui";
 import { CartItems } from "./cart-items";
 import { Delivery } from "./delivery";
 import { CartPreview } from "./preview";
 
 const CartPage: FC = () => {
   return (
-    <Page>
-      <StickyHeader title="Giỏ hàng" />
+    <Page title="Giỏ hàng">
       <CartItems />
       <Text.Header className="px-4">Hình thức nhận hàng</Text.Header>
       <Delivery />

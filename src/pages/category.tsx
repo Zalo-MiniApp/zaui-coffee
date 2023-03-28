@@ -1,5 +1,4 @@
 import { ProductItem } from "components/product/item";
-import { StickyHeader } from "components/sticky-header";
 import React, { FC, Suspense } from "react";
 import { useRecoilValue } from "recoil";
 import { categoriesState, productsByCategoryState, selectedCategoryIdState } from "state";
@@ -39,8 +38,7 @@ const CategoryProducts: FC<{ categoryId: string }> = ({ categoryId }) => {
 
 const CategoryPage: FC = () => {
   return (
-    <Page className="flex flex-col">
-      <StickyHeader title="Danh mục" className="flex-none" />
+    <Page title="Danh mục">
       <CategoryPicker />
     </Page>
   );

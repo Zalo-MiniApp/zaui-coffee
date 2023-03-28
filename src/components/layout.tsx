@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Route, Routes } from "react-router";
-import { AnimationRoutes, Box } from "zmp-ui";
+import { Box } from "zmp-ui";
 import { Navigation } from "./navigation";
 import HomePage from "pages/index";
 import CategoryPage from "pages/category";
@@ -16,7 +16,7 @@ export const Layout: FC = () => {
 
   return (
     <Box flex flexDirection="column" className="h-screen">
-      <Box className="flex-1 overflow-y-auto">
+      <Box className="flex-1 flex flex-col overflow-hidden">
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/search" element={<SearchPage />}></Route>

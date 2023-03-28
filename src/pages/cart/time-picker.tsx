@@ -54,7 +54,10 @@ export const TimePicker: FC = () => {
       inputClass="border-none bg-transparent text-primary font-medium text-md m-0 p-0 h-auto"
       placeholder="Chọn thời gian nhận hàng"
       title="Thời gian nhận hàng"
-      value={{ time, date }}
+      value={{
+        date,
+        time: availableTimes.find(t => +t === time) ? time : +availableTimes[0]
+      }}
       formatPickedValueDisplay={
         ({ date, time }) => (date && time) ?
           `${displayHalfAnHourTimeRange(new Date(time.value))}, ${displayDate(new Date(date.value))}`

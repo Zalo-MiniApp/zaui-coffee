@@ -9,8 +9,7 @@ import { ProductList } from "./product-list";
 
 const HomePage: React.FunctionComponent = () => {
   return (
-    <Page className="page relative">
-      <Welcome />
+    <Page className="relative flex-1" title={<Welcome />}>
       <Inquiry />
       <Banner />
       <Suspense>

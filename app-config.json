@@ -9,7 +9,7 @@
     "selfControlLoading": false,
     "hideAndroidBottomNavigationBar": true,
     "hideIOSSafeAreaBottom": true,
-    "actionBarHidden": false
+    "actionBarHidden": true
   },
   "debug": false,
   "listCSS": [],

@@ -6,7 +6,7 @@ export const TextSkeleton: FC<PropsWithChildren<BodyTextProps>> = ({ className, 
   return (
     <Text
       {...props}
-      className={`bg-skeleton text-transparent w-fit h-fit rounded-lg animate-pulse ${className ?? ''}`}
+      className={`bg-skeleton text-transparent w-fit h-fit animate-pulse ${className ?? ''}`}
     />
   );
 };
