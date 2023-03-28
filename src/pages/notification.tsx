@@ -2,13 +2,14 @@ import React, { FC } from "react";
 import { ListRenderer } from "components/list-renderer";
 import { useRecoilValue } from "recoil";
 import { notificationsState } from "state";
-import { Box, Page, Text } from "zmp-ui";
+import { Box, Header, Page, Text } from "zmp-ui";
 
 const NotificationList: FC = () => {
   const notifications = useRecoilValue(notificationsState);
   return (
     <Box className="bg-background">
       <ListRenderer
+        noDivider
         items={notifications}
         renderLeft={(item) => (
           <img className="w-10 h-10 rounded-full" src={item.image} />
@@ -32,7 +33,7 @@ const NotificationList: FC = () => {
 
 const NotificationPage: FC = () => {
   return (
-    <Page title="Thông báo">
+    <Page title={<Header title="Thông báo" sticky showBackIcon={false} />}>
       <Box height={8} />
       <NotificationList />
     </Page>

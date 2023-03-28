@@ -8,10 +8,6 @@ export const CartPreview: FC = () => {
   const quantity = useRecoilValue(totalQuantityState);
   const price = useRecoilValue(totalPriceState);
 
-  if (!quantity) {
-    return <></>;
-  }
-
   return (
     <Box flex className="sticky bottom-0 bg-background p-4 gap-4">
       <Box
@@ -27,7 +23,7 @@ export const CartPreview: FC = () => {
           <DisplayPrice>{price}</DisplayPrice>
         </Text.Title>
       </Box>
-      <Button type="highlight" fullWidth>
+      <Button type="highlight" disabled={!quantity} fullWidth>
         Đặt hàng
       </Button>
     </Box>

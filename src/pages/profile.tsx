@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Box, Icon, Page, Text } from "zmp-ui";
+import { Box, Header, Icon, Page, Text } from "zmp-ui";
 import subscriptionDecor from "static/subscription-decor.svg";
 import { ListRenderer } from "components/list-renderer";
 
@@ -95,7 +95,7 @@ const Other: FC = () => {
 
 const ProfilePage: FC = () => {
   return (
-    <Page title=" ">
+    <Page title={<Header sticky showBackIcon={false} />}>
       <Subscription />
       <Personal />
       <Other />

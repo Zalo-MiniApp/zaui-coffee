@@ -1,12 +1,12 @@
 import React, { FC } from "react";
-import { Box, Page, Text } from "zmp-ui";
+import { Box, Header, Page, Text } from "zmp-ui";
 import { CartItems } from "./cart-items";
 import { Delivery } from "./delivery";
 import { CartPreview } from "./preview";
 
 const CartPage: FC = () => {
   return (
-    <Page title="Giỏ hàng" className="flex flex-col">
+    <Page title={<Header title="Giỏ hàng" sticky showBackIcon={false} />} className="flex flex-col">
       <CartItems />
       <Text.Header className="px-4">Hình thức nhận hàng</Text.Header>
       <Delivery />

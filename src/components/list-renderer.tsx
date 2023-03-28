@@ -8,6 +8,7 @@ interface ListRendererProps<T> {
   renderLeft: (item: T) => ReactNode;
   renderRight: (item: T) => ReactNode;
   onClick?: (item: T) => void;
+  noDivider?: boolean;
 }
 
 export function ListRenderer<T>({
@@ -17,6 +18,7 @@ export function ListRenderer<T>({
   renderLeft,
   renderRight,
   onClick,
+  noDivider
 }: ListRendererProps<T>) {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const collapsedItems = useMemo(() => {
@@ -36,8 +38,8 @@ export function ListRenderer<T>({
             {renderLeft(item)}
             <Box className="space-y-1 flex-1 min-w-0 relative">
               {renderRight(item)}
-              {i < list.length - 1 && (
-                <hr className="absolute left-0 -right-4 -bottom-4 border-gray/25"></hr>
+              {(!noDivider && i < list.length - 1) && (
+                <hr className="absolute left-0 -right-4 -bottom-4 border-divider border-t-[0.5px]"></hr>
               )}
             </Box>
           </div>
