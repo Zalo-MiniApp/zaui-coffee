@@ -8,19 +8,22 @@ export const PersonPicker: FC = () => {
   const phone = useRecoilValue(phoneState);
 
   if (!phone) {
-    return <RequestPersonPickerPhone />
+    return <RequestPersonPickerPhone />;
   }
 
   return (
     <Box flex>
       <Box className="flex-1 space-y-[2px]">
-        <Text.Title size="small" className="text-primary">{`${user.name} - ${phone}`}</Text.Title>
+        <Text.Title
+          size="small"
+          className="text-primary"
+        >{`${user.name} - ${phone}`}</Text.Title>
         <Text className="text-gray">Người nhận</Text>
       </Box>
       <Icon icon="zi-chevron-right" />
     </Box>
   );
-}
+};
 
 export const RequestPersonPickerPhone: FC = () => {
   const retry = useSetRecoilState(retryRequestPhoneState);
@@ -29,7 +32,7 @@ export const RequestPersonPickerPhone: FC = () => {
       <Box className="flex-1 space-y-[2px]">
         <div
           className="text-primary text-base font-medium"
-          onClick={() => retry(k => k + 1)}
+          onClick={() => retry((k) => k + 1)}
         >
           Chọn người nhận
         </div>
@@ -38,4 +41,4 @@ export const RequestPersonPickerPhone: FC = () => {
       <Icon icon="zi-chevron-right" />
     </Box>
   );
-}
+};

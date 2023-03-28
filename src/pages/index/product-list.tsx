@@ -12,11 +12,13 @@ export const ProductListContent: FC = () => {
   return (
     <Section title="Danh sách sản phẩm">
       <Box className="grid grid-cols-2 gap-4">
-        {products.map(product => <ProductItem key={product.id} product={product} />)}
+        {products.map((product) => (
+          <ProductItem key={product.id} product={product} />
+        ))}
       </Box>
     </Section>
   );
-}
+};
 
 export const ProductListFallback: FC = () => {
   const products = [...new Array(12)];
@@ -24,11 +26,13 @@ export const ProductListFallback: FC = () => {
   return (
     <Section title="Danh sách sản phẩm">
       <Box className="grid grid-cols-2 gap-4">
-        {products.map((_, i) => <ProductItemSkeleton key={i} />)}
+        {products.map((_, i) => (
+          <ProductItemSkeleton key={i} />
+        ))}
       </Box>
     </Section>
   );
-}
+};
 
 export const ProductList: FC = () => {
   return (
@@ -36,4 +40,4 @@ export const ProductList: FC = () => {
       <ProductListContent />
     </Suspense>
   );
-}
+};

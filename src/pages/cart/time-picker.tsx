@@ -56,11 +56,15 @@ export const TimePicker: FC = () => {
       title="Thời gian nhận hàng"
       value={{
         date,
-        time: availableTimes.find(t => +t === time) ? time : +availableTimes[0]
+        time: availableTimes.find((t) => +t === time)
+          ? time
+          : +availableTimes[0],
       }}
-      formatPickedValueDisplay={
-        ({ date, time }) => (date && time) ?
-          `${displayHalfAnHourTimeRange(new Date(time.value))}, ${displayDate(new Date(date.value))}`
+      formatPickedValueDisplay={({ date, time }) =>
+        date && time
+          ? `${displayHalfAnHourTimeRange(new Date(time.value))}, ${displayDate(
+              new Date(date.value)
+            )}`
           : `Chọn thời gian`
       }
       onChange={({ date, time }) => {
@@ -75,18 +79,18 @@ export const TimePicker: FC = () => {
         {
           options: availableTimes.map((time, i) => ({
             displayName: displayHalfAnHourTimeRange(time),
-            value: +time
+            value: +time,
           })),
           name: "time",
         },
         {
           options: availableDates.map((date, i) => ({
             displayName: displayDate(date, true),
-            value: +date
+            value: +date,
           })),
           name: "date",
         },
       ]}
     />
   );
-}
+};

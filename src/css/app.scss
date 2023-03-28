@@ -1,6 +1,12 @@
 :root {
   --zmp-primary-color: #0068ff;
+  --zmp-background-color: #f4f5f6;
 }
+
+body {
+  background-color: var(--zmp-background-color);
+}
+
 .zaui-btn-tertiary,
 .zaui-btn-tertiary.zaui-btn-highlight,
 .zaui-bottom-navigation-item-active {

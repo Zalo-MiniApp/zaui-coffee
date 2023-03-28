@@ -2,22 +2,31 @@ import React, { FC, HTMLProps, PropsWithChildren } from "react";
 import { Box, Text } from "zmp-ui";
 import { BodyTextProps } from "zmp-ui/text";
 
-export const TextSkeleton: FC<PropsWithChildren<BodyTextProps>> = ({ className, ...props }) => {
+export const TextSkeleton: FC<PropsWithChildren<BodyTextProps>> = ({
+  className,
+  ...props
+}) => {
   return (
     <Text
       {...props}
-      className={`bg-skeleton text-transparent w-fit h-fit animate-pulse ${className ?? ''}`}
+      className={`bg-skeleton text-transparent w-fit h-fit animate-pulse ${
+        className ?? ""
+      }`}
     />
   );
 };
 
-export const ImageSkeleton: FC<HTMLProps<HTMLImageElement>> = ({ className, ...props }) => {
+export const ImageSkeleton: FC<HTMLProps<HTMLImageElement>> = ({
+  className,
+  ...props
+}) => {
   return (
     <div
       {...props}
-      className={`bg-skeleton animate-pulse ${className ?? ''}`} />
+      className={`bg-skeleton animate-pulse ${className ?? ""}`}
+    />
   );
-}
+};
 
 export const ProductItemSkeleton: FC = () => {
   return (
@@ -27,7 +36,7 @@ export const ProductItemSkeleton: FC = () => {
       <TextSkeleton size="xxSmall">20,000đ</TextSkeleton>
     </div>
   );
-}
+};
 
 export const ProductSlideSkeleton: FC = () => {
   return (
@@ -40,7 +49,7 @@ export const ProductSlideSkeleton: FC = () => {
       </Box>
     </div>
   );
-}
+};
 
 export const ProductSearchResultSkeleton: FC = () => {
   return (
@@ -52,4 +61,4 @@ export const ProductSearchResultSkeleton: FC = () => {
       </Box>
     </div>
   );
-}
+};

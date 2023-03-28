@@ -10,16 +10,25 @@ const NotificationList: FC = () => {
     <Box className="bg-background">
       <ListRenderer
         items={notifications}
-        renderLeft={item => <img className="w-10 h-10 rounded-full" src={item.image} />}
-        renderRight={item => <Box key={item.id}>
-          <Text.Header>{item.title}</Text.Header>
-          <Text size="small" className="text-gray overflow-hidden whitespace-nowrap text-ellipsis">{item.content}</Text>
-        </Box>}
+        renderLeft={(item) => (
+          <img className="w-10 h-10 rounded-full" src={item.image} />
+        )}
+        renderRight={(item) => (
+          <Box key={item.id}>
+            <Text.Header>{item.title}</Text.Header>
+            <Text
+              size="small"
+              className="text-gray overflow-hidden whitespace-nowrap text-ellipsis"
+            >
+              {item.content}
+            </Text>
+          </Box>
+        )}
       />
       {/* {notifications.map(notification => )} */}
     </Box>
   );
-}
+};
 
 const NotificationPage: FC = () => {
   return (
@@ -28,6 +37,6 @@ const NotificationPage: FC = () => {
       <NotificationList />
     </Page>
   );
-}
+};
 
 export default NotificationPage;

@@ -11,48 +11,54 @@ export const StorePicker: FC = () => {
   const nearbyStores = useRecoilValueLoadable(nearbyStoresState);
   const [selectedStore, setSelectedStore] = useRecoilState(selectedStoreState);
   useEffect(() => {
-    if (!selectedStore && nearbyStores.state === 'hasValue' && nearbyStores.contents.length > 0) {
+    if (
+      !selectedStore &&
+      nearbyStores.state === "hasValue" &&
+      nearbyStores.contents.length > 0
+    ) {
       setSelectedStore(nearbyStores.contents[0]);
     }
-  }, [nearbyStores])
+  }, [nearbyStores]);
 
   return (
     <>
       <Box flex>
         <Box className="flex-1 space-y-[2px]">
-          {selectedStore && <>
-            <div
-              className="text-primary text-base font-medium"
-              onClick={() => setVisible(true)}>
-              {selectedStore.name}
-            </div>
-            <Text className="text-gray">
-              {selectedStore.address}
-            </Text>
-          </>}
+          {selectedStore && (
+            <>
+              <div
+                className="text-primary text-base font-medium"
+                onClick={() => setVisible(true)}
+              >
+                {selectedStore.name}
+              </div>
+              <Text className="text-gray">{selectedStore.address}</Text>
+            </>
+          )}
         </Box>
         <Icon icon="zi-chevron-right" />
       </Box>
-      {nearbyStores.state === 'hasValue' && <ActionSheet
-        title="Các cửa hàng ở gần bạn"
-        visible={visible}
-        onClose={() => setVisible(false)}
-        actions={
-          [
-            nearbyStores.contents.map((store: Store & { distance?: number }) => ({
-              text: store.distance ? `${store.name} - ${displayDistance(store.distance)}` : store.name,
-              highLight: store.id === selectedStore?.id,
-              onClick: () => {
-                setSelectedStore(store)
-              },
-            })),
-            [
-              { text: "Đóng", close: true, danger: true },
-            ]
-          ]
-        }
-      >
-      </ActionSheet>}
+      {nearbyStores.state === "hasValue" && (
+        <ActionSheet
+          title="Các cửa hàng ở gần bạn"
+          visible={visible}
+          onClose={() => setVisible(false)}
+          actions={[
+            nearbyStores.contents.map(
+              (store: Store & { distance?: number }) => ({
+                text: store.distance
+                  ? `${store.name} - ${displayDistance(store.distance)}`
+                  : store.name,
+                highLight: store.id === selectedStore?.id,
+                onClick: () => {
+                  setSelectedStore(store);
+                },
+              })
+            ),
+            [{ text: "Đóng", close: true, danger: true }],
+          ]}
+        ></ActionSheet>
+      )}
     </>
   );
-}
+};

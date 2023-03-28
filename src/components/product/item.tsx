@@ -7,13 +7,21 @@ import { ProductPicker } from "./picker";
 export const ProductItem: FC<{ product: Product }> = ({ product }) => {
   return (
     <ProductPicker product={product}>
-      {({ open }) => <div className="space-y-2" onClick={open}>
-        <Box className="w-full aspect-square relative">
-          <img loading="lazy" src={product.image} className="absolute left-0 right-0 top-0 bottom-0 w-full h-full object-contain object-center rounded-lg" />
-        </Box>
-        <Text>{product.name}</Text>
-        <Text size="xxSmall" className="text-gray pb-2"><FinalPrice>{product}</FinalPrice></Text>
-      </div>}
+      {({ open }) => (
+        <div className="space-y-2" onClick={open}>
+          <Box className="w-full aspect-square relative">
+            <img
+              loading="lazy"
+              src={product.image}
+              className="absolute left-0 right-0 top-0 bottom-0 w-full h-full object-contain object-center rounded-lg"
+            />
+          </Box>
+          <Text>{product.name}</Text>
+          <Text size="xxSmall" className="text-gray pb-2">
+            <FinalPrice>{product}</FinalPrice>
+          </Text>
+        </div>
+      )}
     </ProductPicker>
   );
-}
+};
