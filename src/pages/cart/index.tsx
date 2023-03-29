@@ -14,7 +14,7 @@ const CartPage: FC = () => {
         Bằng việc tiến hành thanh toán, bạn đồng ý với điều kiện và điều khoản
         sử dụng của Zalo Mini App
       </Text>
-      <Box height={32} className="flex-none" />
+      <Box className="flex-1 min-h-[32px]" />
       <CartPreview />
     </Page>
   );

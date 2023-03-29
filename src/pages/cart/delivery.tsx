@@ -1,3 +1,4 @@
+import { ElasticTextarea } from "components/elastic-textarea";
 import { ListRenderer } from "components/list-renderer";
 import React, { FC, Suspense } from "react";
 import { Box, Icon, Input, Text } from "zmp-ui";
@@ -38,13 +39,10 @@ export const Delivery: FC = () => {
             left: <Icon icon="zi-note" className="my-auto" />,
             right: (
               <Box flex>
-                <Input.TextArea
+                <ElasticTextarea
                   placeholder="Nhập ghi chú..."
-                  className="border-none px-0"
-                  inputElement={<Input />}
-                  autoSize={{
-                    minRows: 1,
-                  }}
+                  className="border-none px-0 w-full focus:outline-none"
+                  maxRows={4}
                 />
               </Box>
             ),
