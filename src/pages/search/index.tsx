@@ -5,7 +5,7 @@ import { SearchResult } from "./result";
 
 const SearchPage: FC = () => {
   return (
-    <Page title="Tìm kiếm">
+    <Page title="Tìm kiếm" className="flex flex-col">
       <Inquiry />
       <SearchResult />
     </Page>

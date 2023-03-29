@@ -26,13 +26,14 @@ export const StorePicker: FC = () => {
         <Box className="flex-1 space-y-[2px] min-w-0">
           {selectedStore && (
             <>
-              <div
-                className="text-primary text-base font-medium"
+              <Text
+                size="small"
+                className="text-primary text-sm font-medium"
                 onClick={() => setVisible(true)}
               >
                 {selectedStore.name}
-              </div>
-              <Text className="text-gray whitespace-nowrap overflow-hidden text-ellipsis">{selectedStore.address}</Text>
+              </Text>
+              <Text size="xSmall" className="text-gray whitespace-nowrap overflow-hidden text-ellipsis">{selectedStore.address}</Text>
             </>
           )}
         </Box>

@@ -21,7 +21,7 @@ export const Delivery: FC = () => {
               <Box flex className="space-x-2">
                 <Box className="flex-1 space-y-[2px]">
                   <TimePicker />
-                  <Text className="text-gray">Thời gian nhận hàng</Text>
+                  <Text size="xSmall" className="text-gray">Thời gian nhận hàng</Text>
                 </Box>
                 <Icon icon="zi-chevron-right" />
               </Box>
