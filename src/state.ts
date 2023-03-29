@@ -152,10 +152,10 @@ export const productsByCategoryState = selectorFamily<Product[], string>({
   key: "productsByCategory",
   get:
     (categoryId) =>
-    ({ get }) => {
-      const allProducts = get(productsState);
-      return allProducts.filter((product) => product.categoryId === categoryId);
-    },
+      ({ get }) => {
+        const allProducts = get(productsState);
+        return allProducts.filter((product) => product.categoryId === categoryId);
+      },
 });
 
 export const cartState = atom<Cart>({
@@ -309,8 +309,8 @@ export const selectedDeliveryTimeState = atom({
   default: +new Date(),
 });
 
-export const retryRequestPhoneState = atom({
-  key: "retryRequestPhone",
+export const requestPhoneTriesState = atom({
+  key: "requestPhoneTries",
   default: 0,
 });
 
@@ -346,9 +346,9 @@ export const locationState = selector<
 export const phoneState = selector<string | boolean>({
   key: "phone",
   get: async ({ get }) => {
-    try {
-      get(retryRequestPhoneState);
-      const { number, token } = await getPhoneNumber({});
+    const requested = get(requestPhoneTriesState);
+    if (requested) {
+      const { number, token } = await getPhoneNumber({ fail: console.warn });
       if (number) {
         return number;
       }
@@ -362,8 +362,7 @@ export const phoneState = selector<string | boolean>({
       );
       console.warn("Giả lập số điện thoại mặc định: 0337076898");
       return "0337076898";
-    } catch (error) {
-      return false;
     }
+    return false;
   },
 });

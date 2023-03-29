@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { phoneState, retryRequestPhoneState, userState } from "state";
+import { phoneState, requestPhoneTriesState, userState } from "state";
 import { Box, Icon, Text } from "zmp-ui";
 
 export const PersonPicker: FC = () => {
@@ -12,7 +12,7 @@ export const PersonPicker: FC = () => {
   }
 
   return (
-    <Box flex>
+    <Box flex className="space-x-2">
       <Box className="flex-1 space-y-[2px]">
         <Text.Title
           size="small"
@@ -26,7 +26,7 @@ export const PersonPicker: FC = () => {
 };
 
 export const RequestPersonPickerPhone: FC = () => {
-  const retry = useSetRecoilState(retryRequestPhoneState);
+  const retry = useSetRecoilState(requestPhoneTriesState);
   return (
     <Box flex>
       <Box className="flex-1 space-y-[2px]">

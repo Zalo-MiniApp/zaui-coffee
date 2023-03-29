@@ -18,7 +18,7 @@ export const Delivery: FC = () => {
           {
             left: <Icon icon="zi-clock-1" className="my-auto" />,
             right: (
-              <Box flex>
+              <Box flex className="space-x-2">
                 <Box className="flex-1 space-y-[2px]">
                   <TimePicker />
                   <Text className="text-gray">Thời gian nhận hàng</Text>

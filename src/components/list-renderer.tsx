@@ -33,7 +33,7 @@ export function ListRenderer<T>({
           <div
             key={i}
             onClick={() => onClick?.(item)}
-            className="flex gap-4 p-4 last:pb-0"
+            className="flex space-x-4 p-4 last:pb-0"
           >
             {renderLeft(item)}
             <Box className="space-y-1 flex-1 min-w-0 relative">

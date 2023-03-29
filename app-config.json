@@ -7,8 +7,8 @@
     "leftButton": "none",
     "statusBar": "transparent",
     "selfControlLoading": false,
-    "hideAndroidBottomNavigationBar": true,
-    "hideIOSSafeAreaBottom": true,
+    "hideAndroidBottomNavigationBar": false,
+    "hideIOSSafeAreaBottom": false,
     "actionBarHidden": true
   },
   "debug": false,
