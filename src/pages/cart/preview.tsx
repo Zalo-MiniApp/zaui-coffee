@@ -10,7 +10,7 @@ export const CartPreview: FC = () => {
   const totalPrice = useRecoilValue(totalPriceState);
 
   return (
-    <Box flex className="sticky bottom-0 bg-background p-4 gap-4">
+    <Box flex className="sticky bottom-0 bg-background p-4 space-x-4">
       <Box
         flex
         flexDirection="column"

@@ -163,10 +163,12 @@ export const productsByCategoryState = selectorFamily<Product[], CategoryId>({
   key: "productsByCategory",
   get:
     (categoryId) =>
-      ({ get }) => {
-        const allProducts = get(productsState);
-        return allProducts.filter((product) => product.categoryId.includes(categoryId));
-      },
+    ({ get }) => {
+      const allProducts = get(productsState);
+      return allProducts.filter((product) =>
+        product.categoryId.includes(categoryId)
+      );
+    },
 });
 
 export const cartState = atom<Cart>({

@@ -104,7 +104,7 @@ const Other: FC = () => {
 const ProfilePage: FC = () => {
   return (
     <Page>
-      <Header showBackIcon={false} />
+      <Header showBackIcon={false} title="&nbsp;" />
       <Subscription />
       <Personal />
       <Other />

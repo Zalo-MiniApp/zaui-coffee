@@ -10,7 +10,7 @@ export const SizePicker: FC<{
   onChange: (size: Size) => void;
 }> = ({ value, onChange }) => {
   return (
-    <Box flex className="gap-2 my-8">
+    <Box my={8}>
       <Radio.Group
         className="flex-1 grid grid-cols-3 justify-between"
         name="fruit"

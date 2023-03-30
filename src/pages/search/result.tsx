@@ -18,7 +18,7 @@ const SearchResultContent: FC = () => {
           {result.map((product) => (
             <ProductPicker key={product.id} product={product}>
               {({ open }) => (
-                <div onClick={open} className="flex items-center gap-4">
+                <div onClick={open} className="flex items-center space-x-4">
                   <img
                     className="w-[88px] h-[88px] rounded-lg"
                     src={product.image}
