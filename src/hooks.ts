@@ -15,7 +15,7 @@ export function useVirtualKeyboardVisible() {
 
   useEffect(() => {
     const detectKeyboardOpen = () => {
-      setVisible(window.innerHeight < originalScreenHeight);
+      setVisible(window.innerHeight + 160 < originalScreenHeight);
     };
     window.addEventListener("resize", detectKeyboardOpen);
     return () => {
