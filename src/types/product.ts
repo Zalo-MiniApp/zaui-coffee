@@ -1,3 +1,5 @@
+import { CategoryId } from "./category";
+
 export interface PercentSale {
   type: "percent";
   percent: number;
@@ -15,7 +17,7 @@ export interface Product {
   name: string;
   image: string;
   price: number;
-  categoryId: string;
+  categoryId: CategoryId[];
   description?: string;
   sale?: Sale;
 }

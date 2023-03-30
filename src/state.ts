@@ -8,7 +8,7 @@ import drinksIcon from "static/category-drinks.svg";
 import breadIcon from "static/category-bread.svg";
 import juiceIcon from "static/category-juice.svg";
 import logo from "static/logo.png";
-import { Category } from "types/category";
+import { Category, CategoryId } from "types/category";
 import { Product } from "types/product";
 import { Cart } from "types/cart";
 import { Notification } from "types/notification";
@@ -48,7 +48,7 @@ export const productsState = selector<Product[]>({
         price: 35000,
         image: getDummyImage("product-square-1.jpg"),
         description,
-        categoryId: "coffee",
+        categoryId: ["coffee", "drinks"],
       },
       {
         id: 2,
@@ -56,23 +56,23 @@ export const productsState = selector<Product[]>({
         price: 45000,
         image: getDummyImage("product-square-2.jpg"),
         description,
-        categoryId: "coffee",
+        categoryId: ["coffee"],
       },
       {
         id: 3,
-        name: "Green Tea Smoothie",
+        name: "Grilled Pork Banh Mi",
         price: 30000,
         image: getDummyImage("product-square-3.jpg"),
         description,
-        categoryId: "coffee",
+        categoryId: ["food", "bread"],
       },
       {
         id: 4,
-        name: "Iced Americano",
+        name: "Pizza",
         price: 28000,
         image: getDummyImage("product-square-4.jpg"),
         description,
-        categoryId: "coffee",
+        categoryId: ["food"],
       },
       {
         id: 5,
@@ -80,7 +80,7 @@ export const productsState = selector<Product[]>({
         price: 35000,
         image: getDummyImage("product-square-5.jpg"),
         description,
-        categoryId: "coffee",
+        categoryId: ["coffee", "matcha"],
       },
       {
         id: 6,
@@ -88,23 +88,23 @@ export const productsState = selector<Product[]>({
         price: 38000,
         image: getDummyImage("product-square-6.jpg"),
         description,
-        categoryId: "coffee",
+        categoryId: ["coffee", "milktea"],
       },
       {
         id: 7,
-        name: "Iced Chai Latte",
+        name: "Espresso",
         price: 32000,
         image: getDummyImage("product-square-7.jpg"),
         description,
-        categoryId: "coffee",
+        categoryId: ["coffee"],
       },
       {
         id: 8,
-        name: "Espresso",
+        name: "Green Tea Latte",
         price: 25000,
         image: getDummyImage("product-square-8.jpg"),
         description,
-        categoryId: "coffee",
+        categoryId: ["matcha"],
       },
       {
         id: 9,
@@ -116,7 +116,7 @@ export const productsState = selector<Product[]>({
           percent: 0.2,
         },
         description,
-        categoryId: "coffee",
+        categoryId: ["coffee", "milktea", "drinks"],
       },
       {
         id: 10,
@@ -128,15 +128,15 @@ export const productsState = selector<Product[]>({
           amount: 7000,
         },
         description,
-        categoryId: "coffee",
+        categoryId: ["coffee", "drinks"],
       },
       {
         id: 11,
-        name: "Hazelnut Cappuccino Combo",
+        name: "Milk Tea Combo",
         price: 55000,
         image: getDummyImage("product-rect-3.jpg"),
         description,
-        categoryId: "coffee",
+        categoryId: ["milktea"],
         sale: {
           type: "percent",
           percent: 0.5,
@@ -159,13 +159,13 @@ export const selectedCategoryIdState = atom({
   default: "coffee",
 });
 
-export const productsByCategoryState = selectorFamily<Product[], string>({
+export const productsByCategoryState = selectorFamily<Product[], CategoryId>({
   key: "productsByCategory",
   get:
     (categoryId) =>
       ({ get }) => {
         const allProducts = get(productsState);
-        return allProducts.filter((product) => product.categoryId === categoryId);
+        return allProducts.filter((product) => product.categoryId.includes(categoryId));
       },
 });
 
