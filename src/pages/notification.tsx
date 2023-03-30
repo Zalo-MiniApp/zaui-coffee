@@ -33,7 +33,8 @@ const NotificationList: FC = () => {
 
 const NotificationPage: FC = () => {
   return (
-    <Page title={<Header title="Thông báo" sticky showBackIcon={false} />}>
+    <Page>
+      <Header title="Thông báo" showBackIcon={false} />
       <Box height={8} />
       <NotificationList />
     </Page>

@@ -1,3 +1,4 @@
+import { useVirtualKeyboardVisible } from "hooks";
 import React, { FC, useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { MenuItem } from "types/menu";
@@ -30,6 +31,7 @@ export const NO_BOTTOM_NAVIGATION_PAGES = ["/search", "/category"];
 
 export const Navigation: FC = () => {
   const [activeTab, setActiveTab] = useState<TabKeys>("/");
+  const keyboardVisible = useVirtualKeyboardVisible();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -37,7 +39,7 @@ export const Navigation: FC = () => {
     return NO_BOTTOM_NAVIGATION_PAGES.includes(location.pathname);
   }, [location]);
 
-  if (noBottomNav) {
+  if (noBottomNav || keyboardVisible) {
     return <></>;
   }
 

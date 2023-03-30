@@ -95,7 +95,8 @@ const Other: FC = () => {
 
 const ProfilePage: FC = () => {
   return (
-    <Page title={<Header sticky showBackIcon={false} />}>
+    <Page>
+      <Header showBackIcon={false} />
       <Subscription />
       <Personal />
       <Other />

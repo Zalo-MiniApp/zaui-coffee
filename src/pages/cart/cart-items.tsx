@@ -34,7 +34,7 @@ export const CartItems: FC = () => {
                   <Box className="space-y-1 flex-1">
                     <Text size="small">{item.product.name}</Text>
                     <Text className="text-gray" size="xSmall">
-                      <FinalPrice>{item.product}</FinalPrice>
+                      <FinalPrice>{item.product}</FinalPrice>, Size {item.size}
                     </Text>
                   </Box>
                   <Text className="text-primary font-medium" size="small">

@@ -5,6 +5,7 @@
 
 body {
   background-color: var(--zmp-background-color);
+  user-select: none;
 }
 
 .zaui-btn-tertiary,
@@ -63,8 +64,11 @@ body {
 }
 
 .zaui-header {
+  position: sticky;
   height: auto;
+  min-height: 44px;
   margin-bottom: 0;
+  flex: none;
 
   &::after {
     display: none;

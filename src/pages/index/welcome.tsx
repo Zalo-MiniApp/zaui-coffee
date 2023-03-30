@@ -10,7 +10,6 @@ export const Welcome: FC = () => {
 
   return (
     <Header
-      sticky
       className="app-header no-border pl-4 flex-none"
       showBackIcon={false}
       title={

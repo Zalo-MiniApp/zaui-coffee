@@ -1,3 +1,4 @@
+import { useVirtualKeyboardVisible } from "hooks";
 import React, { FC } from "react";
 import { Box, Header, Page, Text } from "zmp-ui";
 import { CartItems } from "./cart-items";
@@ -5,8 +6,11 @@ import { Delivery } from "./delivery";
 import { CartPreview } from "./preview";
 
 const CartPage: FC = () => {
+  const keyboardVisible = useVirtualKeyboardVisible();
+
   return (
-    <Page title={<Header title="Giỏ hàng" sticky showBackIcon={false} />} className="flex flex-col">
+    <Page className="flex flex-col">
+      <Header title="Giỏ hàng" showBackIcon={false} />
       <CartItems />
       <Text.Header className="px-4">Hình thức nhận hàng</Text.Header>
       <Delivery />
@@ -15,7 +19,7 @@ const CartPage: FC = () => {
         sử dụng của Zalo Mini App
       </Text>
       <Box className="flex-1 min-h-[32px]" />
-      <CartPreview />
+      {!keyboardVisible && <CartPreview />}
     </Page>
   );
 };

@@ -30,7 +30,7 @@
     "recoil": "^0.7.7",
     "swiper": "^9.1.0",
     "zmp-sdk": "^2.25.4",
-    "zmp-ui": "file:zmp-ui-v1.6.0-rc.5.tgz"
+    "zmp-ui": "^1.6.0-rc.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

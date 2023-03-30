@@ -6,7 +6,7 @@ import {
   productsByCategoryState,
   selectedCategoryIdState,
 } from "state";
-import { Box, Page, Tabs, Text } from "zmp-ui";
+import { Box, Header, Page, Tabs, Text } from "zmp-ui";
 
 const CategoryPicker: FC = () => {
   const categories = useRecoilValue(categoriesState);
@@ -53,7 +53,8 @@ const CategoryProducts: FC<{ categoryId: string }> = ({ categoryId }) => {
 
 const CategoryPage: FC = () => {
   return (
-    <Page title="Danh mục" className="flex">
+    <Page className="flex">
+      <Header title="Danh mục" />
       <CategoryPicker />
     </Page>
   );

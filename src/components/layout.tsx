@@ -10,6 +10,18 @@ import ProfilePage from "pages/profile";
 import SearchPage from "pages/search";
 import { useRecoilValueLoadable } from "recoil";
 import { locationState } from "state";
+import { getSystemInfo } from "zmp-sdk";
+
+if (getSystemInfo().platform === "android") {
+  const androidSafeTop = Math.round(
+    (window as any).ZaloJavaScriptInterface.getStatusBarHeight() /
+    window.devicePixelRatio
+  );
+  document.body.style.setProperty(
+    "--zaui-safe-area-inset-top",
+    `${androidSafeTop}px`
+  );
+}
 
 export const Layout: FC = () => {
   useRecoilValueLoadable(locationState);

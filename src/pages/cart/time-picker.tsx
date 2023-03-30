@@ -2,6 +2,7 @@ import React, { FC, useMemo, useState } from "react";
 import { useRecoilState } from "recoil";
 import { selectedDeliveryTimeState } from "state";
 import { displayDate, displayHalfAnHourTimeRange } from "utils/date";
+import { matchStatusBarColor } from "utils/device";
 import { Picker } from "zmp-ui";
 
 export const TimePicker: FC = () => {
@@ -51,6 +52,7 @@ export const TimePicker: FC = () => {
     <Picker
       mask
       maskClosable
+      onVisibilityChange={visbile => matchStatusBarColor(visbile)}
       inputClass="border-none bg-transparent text-sm text-primary font-medium text-md m-0 p-0 h-auto"
       placeholder="Chọn thời gian nhận hàng"
       title="Thời gian nhận hàng"
