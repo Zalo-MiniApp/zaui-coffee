@@ -8,7 +8,8 @@ import { TimePicker } from "./time-picker";
 
 export const Delivery: FC = () => {
   return (
-    <Box py={3} px={4}>
+    <Box className="space-y-3 px-4">
+      <Text.Header>Hình thức nhận hàng</Text.Header>
       <ListRenderer
         items={[
           {

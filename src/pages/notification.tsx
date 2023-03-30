@@ -3,6 +3,7 @@ import { ListRenderer } from "components/list-renderer";
 import { useRecoilValue } from "recoil";
 import { notificationsState } from "state";
 import { Box, Header, Page, Text } from "zmp-ui";
+import { Divider } from "components/divider";
 
 const NotificationList: FC = () => {
   const notifications = useRecoilValue(notificationsState);
@@ -26,7 +27,6 @@ const NotificationList: FC = () => {
           </Box>
         )}
       />
-      {/* {notifications.map(notification => )} */}
     </Box>
   );
 };
@@ -35,7 +35,7 @@ const NotificationPage: FC = () => {
   return (
     <Page>
       <Header title="Thông báo" showBackIcon={false} />
-      <Box height={8} />
+      <Divider />
       <NotificationList />
     </Page>
   );

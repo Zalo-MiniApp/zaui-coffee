@@ -25,7 +25,7 @@ export const Inquiry: FC = () => {
     <Box
       p={4}
       pt={6}
-      className="bg-white transition-all flex-none"
+      className="bg-white transition-all ease-out flex-none"
       ref={
         ((el: HTMLDivElement) => {
           setTimeout(() => {
