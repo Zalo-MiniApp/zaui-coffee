@@ -66,7 +66,8 @@ body {
 .zaui-header {
   position: sticky;
   height: auto;
-  min-height: 44px;
+  min-height: 24px;
+  box-sizing: content-box;
   margin-bottom: 0;
   flex: none;
 
