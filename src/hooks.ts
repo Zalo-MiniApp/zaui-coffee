@@ -5,7 +5,7 @@ export function useMatchStatusTextColor(visible?: boolean) {
   useEffect(() => {
     matchStatusBarColor(visible ?? false);
   }, [visible]);
-};
+}
 
 const originalScreenHeight = window.innerHeight;
 
@@ -15,12 +15,12 @@ export function useVirtualKeyboardVisible() {
   useEffect(() => {
     const detectKeyboardOpen = () => {
       setVisible(window.innerHeight < originalScreenHeight);
-    }
+    };
     window.addEventListener("resize", detectKeyboardOpen);
     return () => {
       window.removeEventListener("resize", detectKeyboardOpen);
-    }
-  }, [])
+    };
+  }, []);
 
   return visible;
-};
+}

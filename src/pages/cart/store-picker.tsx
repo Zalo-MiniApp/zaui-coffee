@@ -33,35 +33,38 @@ export const StorePicker: FC = () => {
               >
                 {selectedStore.name}
               </Text>
-              <Text size="xSmall" className="text-gray whitespace-nowrap overflow-hidden text-ellipsis">{selectedStore.address}</Text>
+              <Text
+                size="xSmall"
+                className="text-gray whitespace-nowrap overflow-hidden text-ellipsis"
+              >
+                {selectedStore.address}
+              </Text>
             </>
           )}
         </Box>
         <Icon icon="zi-chevron-right" className="flex-none" />
-      </Box >
-      {
-        nearbyStores.state === "hasValue" && (
-          <ActionSheet
-            title="Các cửa hàng ở gần bạn"
-            visible={visible}
-            onClose={() => setVisible(false)}
-            actions={[
-              nearbyStores.contents.map(
-                (store: Store & { distance?: number }) => ({
-                  text: store.distance
-                    ? `${store.name} - ${displayDistance(store.distance)}`
-                    : store.name,
-                  highLight: store.id === selectedStore?.id,
-                  onClick: () => {
-                    setSelectedStore(store);
-                  },
-                })
-              ),
-              [{ text: "Đóng", close: true, danger: true }],
-            ]}
-          ></ActionSheet>
-        )
-      }
+      </Box>
+      {nearbyStores.state === "hasValue" && (
+        <ActionSheet
+          title="Các cửa hàng ở gần bạn"
+          visible={visible}
+          onClose={() => setVisible(false)}
+          actions={[
+            nearbyStores.contents.map(
+              (store: Store & { distance?: number }) => ({
+                text: store.distance
+                  ? `${store.name} - ${displayDistance(store.distance)}`
+                  : store.name,
+                highLight: store.id === selectedStore?.id,
+                onClick: () => {
+                  setSelectedStore(store);
+                },
+              })
+            ),
+            [{ text: "Đóng", close: true, danger: true }],
+          ]}
+        ></ActionSheet>
+      )}
     </>
   );
 };

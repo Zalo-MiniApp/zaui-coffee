@@ -13,7 +13,7 @@ export const ProductItem: FC<{ product: Product }> = ({ product }) => {
             <img
               loading="lazy"
               src={product.image}
-              className="absolute left-0 right-0 top-0 bottom-0 w-full h-full object-contain object-center rounded-lg"
+              className="absolute left-0 right-0 top-0 bottom-0 w-full h-full object-cover object-center rounded-lg"
             />
           </Box>
           <Text>{product.name}</Text>

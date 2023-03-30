@@ -53,7 +53,7 @@ const CategoryProducts: FC<{ categoryId: string }> = ({ categoryId }) => {
 
 const CategoryPage: FC = () => {
   return (
-    <Page className="flex">
+    <Page className="flex flex-col">
       <Header title="Danh mục" />
       <CategoryPicker />
     </Page>

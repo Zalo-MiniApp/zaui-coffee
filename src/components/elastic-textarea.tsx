@@ -1,18 +1,29 @@
-import React, { FC, HTMLProps, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  FC,
+  HTMLProps,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { tripUnit } from "utils/dom";
 
 export interface ElasticTextareaProps extends HTMLProps<HTMLTextAreaElement> {
   maxRows?: number;
 }
 
-export const ElasticTextarea: FC<ElasticTextareaProps> = ({ onChange, maxRows, ...props }) => {
+export const ElasticTextarea: FC<ElasticTextareaProps> = ({
+  onChange,
+  maxRows,
+  ...props
+}) => {
   const ref = useRef<HTMLTextAreaElement>(null);
   const [height, setHeight] = useState(0);
   useEffect(() => {
     if (ref.current) {
       adjustHeight(ref.current);
     }
-  }, [])
+  }, []);
   const numberOfRows = useMemo(() => {
     if (height && ref.current) {
       const styles = window.getComputedStyle(ref.current);
@@ -27,30 +38,30 @@ export const ElasticTextarea: FC<ElasticTextareaProps> = ({ onChange, maxRows, .
       return (maxRows ?? numberOfRows) * tripUnit(styles.lineHeight);
     }
     return 0;
-  }, [numberOfRows, maxRows])
+  }, [numberOfRows, maxRows]);
   const adjustHeight = (el: HTMLTextAreaElement) => {
-    el.style.minHeight = '0px';
-    console.log(el.scrollHeight, maxHeight)
+    el.style.minHeight = "0px";
+    console.log(el.scrollHeight, maxHeight);
     if (maxHeight && maxHeight < el.scrollHeight) {
       el.style.minHeight = `${maxHeight}px`;
     } else {
       el.style.minHeight = `${el.scrollHeight}px`;
     }
     setHeight(el.scrollHeight);
-  }
+  };
 
   return (
     <textarea
       {...props}
       style={{
-        height: 'auto',
+        height: "auto",
         paddingTop: 0,
         paddingBottom: 0,
         maxHeight,
-        resize: 'none'
+        resize: "none",
       }}
       ref={ref}
-      onChange={e => {
+      onChange={(e) => {
         if (onChange) {
           onChange(e);
         }
@@ -59,4 +70,4 @@ export const ElasticTextarea: FC<ElasticTextareaProps> = ({ onChange, maxRows, .
       rows={1}
     />
   );
-}
+};

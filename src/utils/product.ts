@@ -10,3 +10,7 @@ export function calcFinalPrice(product: Product) {
   }
   return product.price;
 }
+
+export function getDummyImage(filename: string) {
+  return `https://zalo-miniapp.github.io/zaui-coffee/dummy/${filename}`;
+}

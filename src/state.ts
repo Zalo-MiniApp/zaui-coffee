@@ -7,7 +7,6 @@ import milkteaIcon from "static/category-milktea.svg";
 import drinksIcon from "static/category-drinks.svg";
 import breadIcon from "static/category-bread.svg";
 import juiceIcon from "static/category-juice.svg";
-import productImage from "static/product-coffee.png";
 import logo from "static/logo.png";
 import { Category } from "types/category";
 import { Product } from "types/product";
@@ -15,7 +14,7 @@ import { Cart } from "types/cart";
 import { Notification } from "types/notification";
 import { calculateDistance } from "utils/location";
 import { Store } from "types/delivery";
-import { calcFinalPrice } from "utils/price";
+import { calcFinalPrice, getDummyImage } from "utils/product";
 import { wait } from "utils/async";
 
 export const userState = selector({
@@ -45,72 +44,72 @@ export const productsState = selector<Product[]>({
     return [
       {
         id: 1,
-        name: "CloudTea Thơm Dừa Đá Xay",
-        price: 25000,
-        image: productImage,
+        name: "Caramel Latte",
+        price: 35000,
+        image: getDummyImage("product-square-1.jpg"),
         description,
         categoryId: "coffee",
       },
       {
         id: 2,
-        name: "Đồ uống CANADA DRY siêu mát lạnh",
-        price: 57000,
-        image: productImage,
+        name: "Mocha Frappuccino",
+        price: 45000,
+        image: getDummyImage("product-square-2.jpg"),
         description,
         categoryId: "coffee",
       },
       {
         id: 3,
-        name: "CloudTea Thơm Dừa Đá Xay",
-        price: 25000,
-        image: productImage,
+        name: "Green Tea Smoothie",
+        price: 30000,
+        image: getDummyImage("product-square-3.jpg"),
         description,
         categoryId: "coffee",
       },
       {
         id: 4,
-        name: "Hi-Tea Phúc Bồn Tử Mandarin",
-        price: 50000,
-        image: productImage,
+        name: "Iced Americano",
+        price: 28000,
+        image: getDummyImage("product-square-4.jpg"),
         description,
         categoryId: "coffee",
       },
       {
         id: 5,
-        name: "CloudTea Thơm Dừa Đá Xay",
-        price: 25000,
-        image: productImage,
+        name: "Vanilla Latte",
+        price: 35000,
+        image: getDummyImage("product-square-5.jpg"),
         description,
         categoryId: "coffee",
       },
       {
         id: 6,
-        name: "Hi-Tea Phúc Bồn Tử Mandarin",
-        price: 50000,
-        image: productImage,
+        name: "Caramel Macchiato",
+        price: 38000,
+        image: getDummyImage("product-square-6.jpg"),
         description,
         categoryId: "coffee",
       },
       {
         id: 7,
-        name: "CloudTea Thơm Dừa Đá Xay",
-        price: 25000,
-        image: productImage,
+        name: "Iced Chai Latte",
+        price: 32000,
+        image: getDummyImage("product-square-7.jpg"),
         description,
         categoryId: "coffee",
       },
       {
         id: 8,
-        name: "Hi-Tea Phúc Bồn Tử Mandarin",
-        price: 50000,
-        image: productImage,
+        name: "Espresso",
+        price: 25000,
+        image: getDummyImage("product-square-8.jpg"),
         description,
         categoryId: "coffee",
       },
       {
         id: 9,
-        name: "CloudTea Thơm Dừa Đá Xay",
-        image: productImage,
+        name: "Bộ 3 Blue Corner Coffee siêu HOT",
+        image: getDummyImage("product-rect-1.jpg"),
         price: 25000,
         sale: {
           type: "percent",
@@ -121,8 +120,8 @@ export const productsState = selector<Product[]>({
       },
       {
         id: 10,
-        name: "Đồ uống CANADA DRY siêu mát lạnh",
-        image: productImage,
+        name: "Combo Hi Tea Aroma",
+        image: getDummyImage("product-rect-2.jpg"),
         price: 57000,
         sale: {
           type: "fixed",
@@ -130,6 +129,18 @@ export const productsState = selector<Product[]>({
         },
         description,
         categoryId: "coffee",
+      },
+      {
+        id: 11,
+        name: "Hazelnut Cappuccino Combo",
+        price: 55000,
+        image: getDummyImage("product-rect-3.jpg"),
+        description,
+        categoryId: "coffee",
+        sale: {
+          type: "percent",
+          percent: 0.5,
+        },
       },
     ];
   },
