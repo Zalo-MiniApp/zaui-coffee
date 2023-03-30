@@ -1,0 +1,40 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Zalo Mini App
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        mini-app-id: ["194839900003483517"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: "npm"
+      - run: npx zmp-developer-token login ${{ secrets.ZALO_APP_ID }} ${{ secrets.ZALO_APP_SECRET }} ${{ secrets.ZALO_REFRESH_TOKEN }} >> $GITHUB_ENV
+      - uses: hmanzur/actions-set-secret@v2.0.0
+        with:
+          name: "ZALO_REFRESH_TOKEN"
+          value: ${{ env.NEW_REFRESH_TOKEN }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      - run: npm install
+      - run: npm install -g zmp-cli
+      - run: npx zmp-developer-token deploy ${{ matrix.mini-app-id }}
+      - name: Report
+        run: |
+          echo "### Deployment success! :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+          echo "View your deployment result: [Version Management](https://mini.zalo.me/miniapp/${{ matrix.mini-app-id }}/versions)" >> $GITHUB_STEP_SUMMARY
