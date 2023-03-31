@@ -1,12 +1,15 @@
 # ZaUI Coffee
 
 <p style="display: flex; flex-wrap: wrap; gap: 4px">
-  <img alt="react" src="https://badgen.net/badge/react/18.2.0/?icon=npm" />
-  <img alt="zmp-ui" src="https://badgen.net/badge/zmp-ui/1.5.0/purple?icon=npm" />
-  <img alt="zmp-sdk" src="https://badgen.net/badge/zmp-sdk/2.23.3/green?icon=npm" />
-  <img alt="recoil" src="https://badgen.net/badge/recoil/0.7.7/black?icon=npm" />
-  <img alt="tailwindcss" src="https://badgen.net/badge/tailwindcss/3.2.7/cyan?icon=npm" />
-  <img alt="scss" src="https://badgen.net/badge/scss/1.58.3/pink?icon=npm" />
+  <a href="https://github.com/zalo-MiniApp/zaui-coffee/actions/workflows/zalo-mini-app.yml" style="display: flex">
+    <img alt="CI/CD" src="https://github.com/zalo-MiniApp/zaui-coffee/actions/workflows/zalo-mini-app.yml/badge.svg" />
+  </a>
+  <img alt="react" src="https://img.shields.io/github/package-json/dependency-version/Zalo-MiniApp/zaui-coffee/react" />
+  <img alt="zmp-ui" src="https://img.shields.io/github/package-json/dependency-version/Zalo-MiniApp/zaui-coffee/zmp-ui" />
+  <img alt="zmp-sdk" src="https://img.shields.io/github/package-json/dependency-version/Zalo-MiniApp/zaui-coffee/zmp-sdk" />
+  <img alt="recoil" src="https://img.shields.io/github/package-json/dependency-version/Zalo-MiniApp/zaui-coffee/recoil" />
+  <img alt="tailwindcss" src="https://img.shields.io/github/package-json/dependency-version/Zalo-MiniApp/zaui-coffee/dev/tailwindcss" />
+  <img alt="scss" src="https://img.shields.io/github/package-json/dependency-version/Zalo-MiniApp/zaui-coffee/dev/sass" />
 </p>
 
 Starter template for building a coffee shop's mini program. Main features:
@@ -17,18 +20,23 @@ Starter template for building a coffee shop's mini program. Main features:
 - Manage your cart and delivery options.
 - View customer profile and membership.
 
-|                          Preview                           |                                     Open Zalo and scan this QR                                      |
-| :--------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
-| <img src="./docs/preview.svg" alt="Home page" width="250"> | <img src="https://logo-mapps.zdn.vn/qrcode/cc27187ebc3b55650c2a.png" alt="Entry point" width="250"> |
-
-## Pre-requisites
-
-1. [Install Node JS](https://nodejs.org/en/download/)
-1. [Install Mini App DevTools CLI](https://mini.zalo.me/docs/dev-tools)
-1. Download or clone this repository
+|                      Demo                       |                  Entrypoint                  |
+| :---------------------------------------------: | :------------------------------------------: |
+| <img src="./docs/preview.webp" alt="Home page"> | <img src="./docs/qr.webp" alt="Entry point"> |
 
 ## Setup
 
+### Using Zalo Mini App Studio
+
+1. [Install Zalo Mini App Studio](https://mini.zalo.me/docs/dev-tools)
+1. Click on New project > Enter your Mini App ID > Choose ZaUI Coffee template
+1. Wait until the generated project is ready and click the Start button to run the mini app 🚀
+
+### Using Visual Studio Code
+
+1. [Install Node JS](https://nodejs.org/en/download/)
+1. [Install Mini App DevTools CLI](https://mini.zalo.me/docs/dev-tools/cli/intro/)
+1. Download or clone this repository
 1. Install dependencies
 
    ```bash
@@ -52,12 +60,14 @@ Starter template for building a coffee shop's mini program. Main features:
 
 1. Deploy your mini program to Zalo using the mini app ID created in step 1.
 
+   If you're using `zmp-cli`:
+
    ```bash
    zmp login
    zmp deploy
    ```
 
-1. Open Zalo and scan the QR code to preview your mini program
+1. Scan the QR code using Zalo to preview your mini program.
 
 ## Usage:
 
@@ -99,21 +109,17 @@ Just change the `app.title` property in `app-config.json`:
 
 Visit [Zalo Mini Program](https://mini.zalo.me/) and go to your mini program's settings to change the logo.
 
-### Changing color theme
+### Customizations
 
-You can change the primary and the secondary color theme by setting the colors in `app-config.json`:
+You can customizations primary colors and currency displays using [Zalo Mini App Studio](https://mini.zalo.me/docs/dev-tools):
 
-```json
-"template": {
-  "primaryColor": "#0068ff",
-},
-```
+![Customizations](./docs/customizations.webp)
 
 ### Load product list from server
 
 <img src="./docs/products-fetching.webp" alt="Products fetching" width="250" align="right">
 
-Just update the `productsState` selector in `src/state.ts` to use `fetch` and make an HTTP GET request to your server.
+To make an HTTP GET request to your server and fetch the product list, update the `productsState` selector in src/state.ts to use `fetch`.
 
 If the returned JSON structure is different from the template, you would need to map your product object to the corresponding `Product` interface. For example:
 
@@ -138,7 +144,7 @@ export const productsState = selector<Product[]>({
 });
 ```
 
-Feel free to create another `service` layer and put the network fetching logics inside. This template just provides the UI layer, you can customize the logic anyway you want.
+Feel free to create another `service` layer and put the network fetching logics inside. This template provides only the UI layer, so you can customize the logic in any way you want.
 
 ## License
 

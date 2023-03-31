@@ -31,7 +31,7 @@ export const Inquiry: FC = () => {
       }
     >
       <Input.Search
-        ref={el => {
+        ref={(el) => {
           if (!el?.input?.value) {
             el?.focus();
           }

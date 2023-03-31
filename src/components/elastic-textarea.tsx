@@ -41,7 +41,6 @@ export const ElasticTextarea: FC<ElasticTextareaProps> = ({
   }, [numberOfRows, maxRows]);
   const adjustHeight = (el: HTMLTextAreaElement) => {
     el.style.minHeight = "0px";
-    console.log(el.scrollHeight, maxHeight);
     if (maxHeight && maxHeight < el.scrollHeight) {
       el.style.minHeight = `${maxHeight}px`;
     } else {
