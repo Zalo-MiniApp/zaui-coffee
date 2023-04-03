@@ -1,19 +1,11 @@
-import { Divider } from "components/divider";
-import { useVirtualKeyboardVisible } from "hooks";
 import React, { FC } from "react";
-import { Box, Header, Page, Text } from "zmp-ui";
+import { Divider } from "components/divider";
+import { Header, Page } from "zmp-ui";
 import { CartItems } from "./cart-items";
-import { Delivery } from "./delivery";
 import { CartPreview } from "./preview";
-
-const TermsAndPolicies: FC = () => {
-  return (
-    <Text className="text-gray px-4" size="xxSmall">
-      Bằng việc tiến hành thanh toán, bạn đồng ý với điều kiện và điều khoản sử
-      dụng của Zalo Mini App
-    </Text>
-  );
-};
+import { TermsAndPolicies } from "./term-and-policies";
+import { Delivery } from "./delivery";
+import { useVirtualKeyboardVisible } from "hooks";
 
 const CartPage: FC = () => {
   const keyboardVisible = useVirtualKeyboardVisible();

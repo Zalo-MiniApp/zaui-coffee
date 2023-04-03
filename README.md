@@ -12,7 +12,7 @@
   <img alt="scss" src="https://img.shields.io/github/package-json/dependency-version/Zalo-MiniApp/zaui-coffee/dev/sass" />
 </p>
 
-Starter template for building a coffee shop's mini program. Main features:
+Public template for building a coffee shop on Zalo Mini App. Main features:
 
 - View coffee shop details and menus.
 - Order coffee and snacks with customizable size options.
