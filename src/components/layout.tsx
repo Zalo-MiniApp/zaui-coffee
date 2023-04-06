@@ -8,8 +8,6 @@ import CartPage from "pages/cart";
 import NotificationPage from "pages/notification";
 import ProfilePage from "pages/profile";
 import SearchPage from "pages/search";
-import { useRecoilValueLoadable } from "recoil";
-import { locationState } from "state";
 import { getSystemInfo } from "zmp-sdk";
 
 if (getSystemInfo().platform === "android") {
@@ -24,8 +22,6 @@ if (getSystemInfo().platform === "android") {
 }
 
 export const Layout: FC = () => {
-  useRecoilValueLoadable(locationState);
-
   return (
     <Box flex flexDirection="column" className="h-screen">
       <Box className="flex-1 flex flex-col overflow-hidden">

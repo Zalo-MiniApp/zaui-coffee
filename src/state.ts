@@ -306,20 +306,33 @@ export const nearbyStoresState = selector({
       );
 
       return nearbyStores;
-    } else {
-      return stores;
     }
+    return [];
   },
 });
 
-export const selectedStoreState = atom<Store | null>({
+export const selectedStoreIndexState = atom({
+  key: "selectedStoreIndex",
+  default: 0,
+});
+
+export const selectedStoreState = selector({
   key: "selectedStore",
-  default: null,
+  get: ({ get }) => {
+    const index = get(selectedStoreIndexState);
+    const stores = get(nearbyStoresState);
+    return stores[index];
+  },
 });
 
 export const selectedDeliveryTimeState = atom({
   key: "selectedDeliveryTime",
   default: +new Date(),
+});
+
+export const requestLocationTriesState = atom({
+  key: "requestLocationTries",
+  default: 0,
 });
 
 export const requestPhoneTriesState = atom({
@@ -331,28 +344,32 @@ export const locationState = selector<
   { latitude: string; longitude: string } | false
 >({
   key: "location",
-  get: async () => {
-    try {
-      const { latitude, longitude, token } = await getLocation({});
+  get: async ({ get }) => {
+    const requested = get(requestLocationTriesState);
+    if (requested) {
+      const { latitude, longitude, token } = await getLocation({
+        fail: console.warn,
+      });
       if (latitude && longitude) {
         return { latitude, longitude };
       }
-      console.warn(
-        "Sử dụng token này để truy xuất vị trí chính xác của người dùng",
-        token
-      );
-      console.warn(
-        "Chi tiết tham khảo: ",
-        "https://mini.zalo.me/blog/thong-bao-thay-doi-luong-truy-xuat-thong-tin-nguoi-dung-tren-zalo-mini-app"
-      );
-      console.warn("Giả lập vị trí mặc định: VNG Campus");
-      return {
-        latitude: "10.7287",
-        longitude: "106.7317",
-      };
-    } catch (error) {
-      return false;
+      if (token) {
+        console.warn(
+          "Sử dụng token này để truy xuất vị trí chính xác của người dùng",
+          token
+        );
+        console.warn(
+          "Chi tiết tham khảo: ",
+          "https://mini.zalo.me/blog/thong-bao-thay-doi-luong-truy-xuat-thong-tin-nguoi-dung-tren-zalo-mini-app"
+        );
+        console.warn("Giả lập vị trí mặc định: VNG Campus");
+        return {
+          latitude: "10.7287",
+          longitude: "106.7317",
+        };
+      }
     }
+    return false;
   },
 });
 

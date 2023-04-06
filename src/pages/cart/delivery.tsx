@@ -3,7 +3,7 @@ import { ListRenderer } from "components/list-renderer";
 import React, { FC, Suspense } from "react";
 import { Box, Icon, Input, Text } from "zmp-ui";
 import { PersonPicker, RequestPersonPickerPhone } from "./person-picker";
-import { StorePicker } from "./store-picker";
+import { RequestStorePickerLocation, StorePicker } from "./store-picker";
 import { TimePicker } from "./time-picker";
 
 export const Delivery: FC = () => {
@@ -14,7 +14,11 @@ export const Delivery: FC = () => {
         items={[
           {
             left: <Icon icon="zi-location" className="my-auto" />,
-            right: <StorePicker />,
+            right: (
+              <Suspense fallback={<RequestStorePickerLocation />}>
+                <StorePicker />
+              </Suspense>
+            ),
           },
           {
             left: <Icon icon="zi-clock-1" className="my-auto" />,
