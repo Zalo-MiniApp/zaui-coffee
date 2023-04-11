@@ -1,58 +1,6 @@
-:root {
-  --zmp-primary-color: #0068ff;
-  --zmp-background-color: #f4f5f6;
-}
-
 body {
   background-color: var(--zmp-background-color);
   user-select: none;
-}
-
-.zaui-btn-tertiary,
-.zaui-btn-tertiary.zaui-btn-highlight,
-.zaui-bottom-navigation-item-active {
-  color: var(--zmp-primary-color);
-}
-
-.zaui-btn-primary,
-.zaui-btn-primary.zaui-btn-highlight,
-.zaui-radio-checked .zaui-radio-checkmark,
-.zaui-btn-primary:active,
-.zaui-btn-primary.zaui-btn-highlight:active,
-.zaui-btn-primary:focus-visible,
-.zaui-btn-primary.zaui-btn-highlight:focus-visible {
-  background-color: var(--zmp-primary-color);
-}
-
-.zaui-btn-primary:active,
-.zaui-btn-primary.zaui-btn-highlight:active,
-.zaui-btn-primary:focus-visible,
-.zaui-btn-primary.zaui-btn-highlight:focus-visible {
-  opacity: 0.9;
-}
-
-.swiper-pagination.swiper-pagination-horizontal {
-  display: flex;
-  gap: 4px;
-  background: rgba(0, 0, 0, 0.2);
-  width: auto;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 100px;
-  padding: 4px;
-  bottom: 12px;
-
-  > .swiper-pagination-bullet {
-    width: 4px;
-    height: 4px;
-    margin: 0;
-    background: rgba(255, 255, 255, 0.6);
-
-    &.swiper-pagination-bullet-active {
-      background: #ffffff;
-      transform: scale(1.5);
-    }
-  }
 }
 
 .zaui-routes {
@@ -86,6 +34,44 @@ body {
   line-height: 16px;
 }
 
+.zaui-btn-tertiary,
+.zaui-btn-tertiary.zaui-btn-highlight,
+.zaui-bottom-navigation-item-active {
+  color: var(--zmp-primary-color);
+}
+
+.zaui-btn-primary,
+.zaui-btn-primary.zaui-btn-highlight,
+.zaui-radio-checked .zaui-radio-checkmark,
+.zaui-btn-primary:active,
+.zaui-btn-primary.zaui-btn-highlight:active,
+.zaui-btn-primary:focus-visible,
+.zaui-btn-primary.zaui-btn-highlight:focus-visible {
+  background-color: var(--zmp-primary-color);
+}
+
+.zaui-btn-primary:active,
+.zaui-btn-primary.zaui-btn-highlight:active,
+.zaui-btn-primary:focus-visible,
+.zaui-btn-primary.zaui-btn-highlight:focus-visible {
+  opacity: 0.9;
+}
+
+.zaui-picker-item-selected {
+  color: var(--zmp-primary-color);
+}
+
+.zaui-input-affix-wrapper-focused,
+.zaui-input-affix-wrapper:hover,
+.zaui-input-affix-wrapper:focus,
+.zaui-input-affix-wrapper:focus-visible {
+  border-color: var(--zmp-primary-color);
+}
+
+.zaui-tabs-tabbar-active-line {
+  background-color: var(--zmp-primary-color);
+}
+
 .category-tabs {
   display: flex;
   flex-direction: column;
@@ -104,5 +90,29 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+  }
+}
+
+.swiper-pagination.swiper-pagination-horizontal {
+  display: flex;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100px;
+  padding: 4px;
+  bottom: 12px;
+
+  > .swiper-pagination-bullet {
+    width: 4px;
+    height: 4px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.6);
+
+    &.swiper-pagination-bullet-active {
+      background: #ffffff;
+      transform: scale(1.5);
+    }
   }
 }

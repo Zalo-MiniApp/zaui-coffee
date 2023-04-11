@@ -1,20 +1,27 @@
 {
   "name": "ZaUI Coffee",
   "options": {
+    "headerLogo": {
+      "title": "Header Logo",
+      "description": "Đường dẫn tuyệt đối, bắt buộc phải có \"https://\". Nếu bạn muốn sử dụng logo của Mini App, bạn có thể lấy đường dẫn bằng cách truy cập trang quản lý ứng dụng trên mini.zalo.me, rồi nhấn chuột phải vào logo và chọn \"Copy Image Address\".",
+      "type": "string",
+      "optional": true
+    },
     "primaryColor": {
       "title": "Primary Color",
-      "description": "Buttons, links, icons, highlited items color,...",
+      "description": "Màu chủ đạo (áp dụng cho nút, liên kết, biểu tượng,...)",
       "type": "color",
       "optional": true
     },
     "currencySymbol": {
       "title": "Currency Symbol",
+      "description": "Đơn vị tiền tệ.",
       "type": "string",
       "default": "đ"
     },
     "prefixCurrencySymbol": {
       "title": "Put currency symbol before the money amount",
-      "description": "Enable this option if the currency symbol should be written before the number (e.g. $5), or disable if the symbol should be written after the number (e.g. 5đ).",
+      "description": "Bật lên đối với các đơn vị tiền tệ mà ký hiệu cần phải được đặt trước số tiền (ví dụ: $5). Hoặc giữ nguyên nếu ký hiệu cần đặt sau số tiền (ví dụ: 500đ).",
       "type": "boolean"
     }
   }
