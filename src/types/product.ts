@@ -12,6 +12,30 @@ export interface FixedSale {
 
 export type Sale = PercentSale | FixedSale;
 
+export interface Option {
+  key: string;
+  label?: string;
+  priceChange?: Sale;
+}
+
+export interface BaseVariant {
+  key: string;
+  label?: string;
+  options: Option[];
+}
+
+export interface SingleOptionVariant extends BaseVariant {
+  type: "single";
+  default?: string;
+}
+
+export interface MultipleOptionVariant extends BaseVariant {
+  type: "multiple";
+  default?: string[];
+}
+
+export type Variant = SingleOptionVariant | MultipleOptionVariant;
+
 export interface Product {
   id: number;
   name: string;
@@ -20,4 +44,5 @@ export interface Product {
   categoryId: CategoryId[];
   description?: string;
   sale?: Sale;
+  variants?: Variant[];
 }

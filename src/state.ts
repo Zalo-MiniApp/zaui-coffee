@@ -9,7 +9,7 @@ import breadIcon from "static/category-bread.svg";
 import juiceIcon from "static/category-juice.svg";
 import logo from "static/logo.png";
 import { Category, CategoryId } from "types/category";
-import { Product } from "types/product";
+import { Product, Variant } from "types/product";
 import { Cart } from "types/cart";
 import { Notification } from "types/notification";
 import { calculateDistance } from "utils/location";
@@ -41,6 +41,76 @@ export const productsState = selector<Product[]>({
   key: "products",
   get: async () => {
     await wait(2000);
+    const variants: Variant[] = [
+      {
+        key: "size",
+        label: "Kích cỡ",
+        type: "single",
+        default: "m",
+        options: [
+          {
+            key: "s",
+            label: "Nhỏ",
+            priceChange: {
+              type: "percent",
+              percent: -0.2,
+            },
+          },
+          {
+            key: "m",
+            label: "Vừa",
+          },
+          {
+            key: "l",
+            label: "To",
+            priceChange: {
+              type: "percent",
+              percent: 0.2,
+            },
+          },
+        ],
+      },
+      {
+        key: "toping",
+        label: "Topping",
+        type: "multiple",
+        default: ["t1", "t4"],
+        options: [
+          {
+            key: "t1",
+            label: "Trân châu",
+            priceChange: {
+              type: "fixed",
+              amount: 5000,
+            },
+          },
+          {
+            key: "t2",
+            label: "Bánh flan",
+            priceChange: {
+              type: "fixed",
+              amount: 10000,
+            },
+          },
+          {
+            key: "t3",
+            label: "Trang trí",
+            priceChange: {
+              type: "percent",
+              percent: 0.15,
+            },
+          },
+          {
+            key: "t4",
+            label: "Không lấy đá",
+            priceChange: {
+              type: "fixed",
+              amount: -5000,
+            },
+          },
+        ],
+      },
+    ];
     return [
       {
         id: 1,
@@ -49,6 +119,7 @@ export const productsState = selector<Product[]>({
         image: getDummyImage("product-square-1.jpg"),
         description,
         categoryId: ["coffee", "drinks"],
+        variants,
       },
       {
         id: 2,
@@ -57,6 +128,7 @@ export const productsState = selector<Product[]>({
         image: getDummyImage("product-square-2.jpg"),
         description,
         categoryId: ["coffee"],
+        variants,
       },
       {
         id: 3,
@@ -65,6 +137,7 @@ export const productsState = selector<Product[]>({
         image: getDummyImage("product-square-3.jpg"),
         description,
         categoryId: ["food", "bread"],
+        variants,
       },
       {
         id: 4,
@@ -73,6 +146,7 @@ export const productsState = selector<Product[]>({
         image: getDummyImage("product-square-4.jpg"),
         description,
         categoryId: ["food"],
+        variants,
       },
       {
         id: 5,
@@ -81,6 +155,7 @@ export const productsState = selector<Product[]>({
         image: getDummyImage("product-square-5.jpg"),
         description,
         categoryId: ["coffee", "matcha"],
+        variants,
       },
       {
         id: 6,
@@ -89,6 +164,7 @@ export const productsState = selector<Product[]>({
         image: getDummyImage("product-square-6.jpg"),
         description,
         categoryId: ["coffee", "milktea"],
+        variants,
       },
       {
         id: 7,
@@ -97,6 +173,7 @@ export const productsState = selector<Product[]>({
         image: getDummyImage("product-square-7.jpg"),
         description,
         categoryId: ["coffee"],
+        variants,
       },
       {
         id: 8,
@@ -105,6 +182,7 @@ export const productsState = selector<Product[]>({
         image: getDummyImage("product-square-8.jpg"),
         description,
         categoryId: ["matcha"],
+        variants,
       },
       {
         id: 9,
@@ -117,6 +195,7 @@ export const productsState = selector<Product[]>({
         },
         description,
         categoryId: ["coffee", "milktea", "drinks"],
+        variants,
       },
       {
         id: 10,
@@ -129,6 +208,7 @@ export const productsState = selector<Product[]>({
         },
         description,
         categoryId: ["coffee", "drinks"],
+        variants,
       },
       {
         id: 11,
@@ -137,6 +217,7 @@ export const productsState = selector<Product[]>({
         image: getDummyImage("product-rect-3.jpg"),
         description,
         categoryId: ["milktea"],
+        variants,
         sale: {
           type: "percent",
           percent: 0.5,
@@ -189,7 +270,8 @@ export const totalPriceState = selector({
   get: ({ get }) => {
     const cart = get(cartState);
     return cart.reduce(
-      (total, item) => total + item.quantity * calcFinalPrice(item.product),
+      (total, item) =>
+        total + item.quantity * calcFinalPrice(item.product, item.options),
       0
     );
   },

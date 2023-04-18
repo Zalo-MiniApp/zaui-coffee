@@ -1,9 +1,10 @@
-import { Size } from "components/product/size-picker";
 import { Product } from "./product";
+
+export type SelectedOptions = Record<string, string | string[]>;
 
 export interface CartItem {
   product: Product;
-  size: Size;
+  options: SelectedOptions;
   quantity: number;
 }
 

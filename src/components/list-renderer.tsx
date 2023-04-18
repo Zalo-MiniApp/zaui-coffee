@@ -7,6 +7,7 @@ interface ListRendererProps<T> {
   items: T[];
   renderLeft: (item: T) => ReactNode;
   renderRight: (item: T) => ReactNode;
+  renderKey?: (item: T) => string;
   onClick?: (item: T) => void;
   noDivider?: boolean;
 }
@@ -17,6 +18,7 @@ export function ListRenderer<T>({
   limit,
   renderLeft,
   renderRight,
+  renderKey,
   onClick,
   noDivider,
 }: ListRendererProps<T>) {
@@ -31,7 +33,7 @@ export function ListRenderer<T>({
       <Box>
         {(isCollapsed ? collapsedItems : items).map((item, i, list) => (
           <div
-            key={i}
+            key={renderKey ? renderKey(item) : i}
             onClick={() => onClick?.(item)}
             className="flex space-x-4 p-4 last:pb-0"
           >
