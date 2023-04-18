@@ -9,6 +9,7 @@ import NotificationPage from "pages/notification";
 import ProfilePage from "pages/profile";
 import SearchPage from "pages/search";
 import { getSystemInfo } from "zmp-sdk";
+import { ScrollRestoration } from "./scroll-restoration";
 
 if (getSystemInfo().platform === "android") {
   const androidSafeTop = Math.round(
@@ -24,6 +25,7 @@ if (getSystemInfo().platform === "android") {
 export const Layout: FC = () => {
   return (
     <Box flex flexDirection="column" className="h-screen">
+      <ScrollRestoration />
       <Box className="flex-1 flex flex-col overflow-hidden">
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
