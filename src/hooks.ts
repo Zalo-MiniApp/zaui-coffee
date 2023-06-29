@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { matchStatusBarColor } from "utils/device";
 import { useSnackbar } from "zmp-ui";
 
 export function useMatchStatusTextColor(visible?: boolean) {
+  const changedRef = useRef(false);
   useEffect(() => {
-    matchStatusBarColor(visible ?? false);
+    if (changedRef.current) {
+      matchStatusBarColor(visible ?? false);
+    } else {
+      changedRef.current = true;
+    }
   }, [visible]);
 }
 
