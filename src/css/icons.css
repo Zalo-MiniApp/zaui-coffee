@@ -4,7 +4,9 @@
   font-style: normal;
   font-weight: 400;
   src: url(//h5.zdn.vn/static/fonts/MaterialIcons-Regular.eot);
-  src: local("Material Icons"), local("MaterialIcons-Regular"),
+  src:
+    local("Material Icons"),
+    local("MaterialIcons-Regular"),
     url(//h5.zdn.vn/static/fonts/MaterialIcons-Regular.woff2) format("woff2"),
     url(//h5.zdn.vn/static/fonts/MaterialIcons-Regular.woff) format("woff"),
     url(//h5.zdn.vn/static/fonts/MaterialIcons-Regular.ttf) format("truetype");
@@ -32,7 +34,8 @@
   font-family: "ZMP Icons";
   font-style: normal;
   font-weight: 400;
-  src: url("//h5.zdn.vn/static/fonts/ZMPIcons-Regular-v2.woff2") format("woff2"),
+  src:
+    url("//h5.zdn.vn/static/fonts/ZMPIcons-Regular-v2.woff2") format("woff2"),
     url("//h5.zdn.vn/static/fonts/ZMPIcons-Regular-v2.woff") format("woff"),
     url("//h5.zdn.vn/static/fonts/ZMPIcons-Regular-v2.ttf") format("truetype");
 }

@@ -1,14 +1,5 @@
-export type CategoryId =
-  | "coffee"
-  | "matcha"
-  | "food"
-  | "milktea"
-  | "drinks"
-  | "bread"
-  | "juice";
-
 export interface Category {
-  id: CategoryId;
+  id: string;
   name: string;
   icon: string;
 }

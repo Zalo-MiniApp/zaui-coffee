@@ -49,12 +49,12 @@ export const StorePicker: FC = () => {
                   onClick: () => {
                     setSelectedStoreIndex(i);
                   },
-                })
+                }),
               ),
               [{ text: "Đóng", close: true, danger: true }],
             ]}
           ></ActionSheet>,
-          document.body
+          document.body,
         )}
     </>
   );

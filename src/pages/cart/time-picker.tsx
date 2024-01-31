@@ -65,7 +65,7 @@ export const TimePicker: FC = () => {
       formatPickedValueDisplay={({ date, time }) =>
         date && time
           ? `${displayHalfAnHourTimeRange(new Date(time.value))}, ${displayDate(
-              new Date(date.value)
+              new Date(date.value),
             )}`
           : `Chọn thời gian`
       }

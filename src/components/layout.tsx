@@ -14,11 +14,11 @@ import { ScrollRestoration } from "./scroll-restoration";
 if (getSystemInfo().platform === "android") {
   const androidSafeTop = Math.round(
     (window as any).ZaloJavaScriptInterface.getStatusBarHeight() /
-      window.devicePixelRatio
+      window.devicePixelRatio,
   );
   document.body.style.setProperty(
     "--zaui-safe-area-inset-top",
-    `${androidSafeTop}px`
+    `${androidSafeTop}px`,
   );
 }
 

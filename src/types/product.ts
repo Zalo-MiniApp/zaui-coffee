@@ -1,5 +1,3 @@
-import { CategoryId } from "./category";
-
 export interface PercentSale {
   type: "percent";
   percent: number;
@@ -13,13 +11,13 @@ export interface FixedSale {
 export type Sale = PercentSale | FixedSale;
 
 export interface Option {
-  key: string;
+  id: string;
   label?: string;
   priceChange?: Sale;
 }
 
 export interface BaseVariant {
-  key: string;
+  id: string;
   label?: string;
   options: Option[];
 }
@@ -41,7 +39,7 @@ export interface Product {
   name: string;
   image: string;
   price: number;
-  categoryId: CategoryId[];
+  categoryId: string[];
   description?: string;
   sale?: Sale;
   variants?: Variant[];

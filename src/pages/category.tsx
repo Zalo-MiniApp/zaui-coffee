@@ -30,7 +30,7 @@ const CategoryPicker: FC = () => {
 
 const CategoryProducts: FC<{ categoryId: string }> = ({ categoryId }) => {
   const productsByCategory = useRecoilValue(
-    productsByCategoryState(categoryId)
+    productsByCategoryState(categoryId),
   );
 
   if (productsByCategory.length === 0) {

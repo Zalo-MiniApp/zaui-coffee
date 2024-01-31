@@ -12,9 +12,9 @@ export const SingleOptionPicker: FC<{
       <Text.Title size="small">{variant.label}</Text.Title>
       <Radio.Group
         className="flex-1 grid grid-cols-3 justify-between"
-        name={variant.key}
+        name={variant.id}
         options={variant.options.map((option) => ({
-          value: option.key,
+          value: option.id,
           label: option.label,
         }))}
         value={value}

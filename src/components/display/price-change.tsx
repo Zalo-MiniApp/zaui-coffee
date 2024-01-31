@@ -14,7 +14,7 @@ export const DisplayPriceChange: FC<{ children: Product; option: Option }> = ({
           ? option.priceChange.amount
           : children.price * option.priceChange.percent
         : 0,
-    [children, option]
+    [children, option],
   );
   return (
     <>

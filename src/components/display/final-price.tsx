@@ -10,7 +10,7 @@ export const FinalPrice: FC<{
 }> = ({ children, options }) => {
   const finalPrice = useMemo(
     () => calcFinalPrice(children, options),
-    [children, options]
+    [children, options],
   );
   return <DisplayPrice>{finalPrice}</DisplayPrice>;
 };

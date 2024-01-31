@@ -16,17 +16,17 @@ export function calcFinalPrice(product: Product, options?: SelectedOptions) {
   if (options && product.variants) {
     const selectedOptions: Option[] = [];
     for (const variantKey in options) {
-      const variant = product.variants.find((v) => v.key === variantKey);
+      const variant = product.variants.find((v) => v.id === variantKey);
       if (variant) {
         const currentOption = options[variantKey];
         if (typeof currentOption === "string") {
-          const selected = variant.options.find((o) => o.key === currentOption);
+          const selected = variant.options.find((o) => o.id === currentOption);
           if (selected) {
             selectedOptions.push(selected);
           }
         } else {
           const selecteds = variant.options.filter((o) =>
-            currentOption.includes(o.key)
+            currentOption.includes(o.id),
           );
           selectedOptions.push(...selecteds);
         }
@@ -52,7 +52,7 @@ export function getDummyImage(filename: string) {
 
 export function isIdentical(
   option1: SelectedOptions,
-  option2: SelectedOptions
+  option2: SelectedOptions,
 ) {
   const option1Keys = Object.keys(option1);
   const option2Keys = Object.keys(option2);

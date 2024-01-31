@@ -26,9 +26,9 @@ function getDefaultOptions(product?: Product) {
     return product.variants.reduce(
       (options, variant) =>
         Object.assign(options, {
-          [variant.key]: variant.default,
+          [variant.id]: variant.default,
         }),
-      {}
+      {},
     );
   }
   return {};
@@ -41,7 +41,7 @@ export const ProductPicker: FC<ProductPickerProps> = ({
 }) => {
   const [visible, setVisible] = useState(false);
   const [options, setOptions] = useState<SelectedOptions>(
-    selected ? selected.options : getDefaultOptions(product)
+    selected ? selected.options : getDefaultOptions(product),
   );
   const [quantity, setQuantity] = useState(1);
   const setCart = useSetRecoilState(cartState);
@@ -62,7 +62,7 @@ export const ProductPicker: FC<ProductPickerProps> = ({
           const editing = cart.find(
             (item) =>
               item.product.id === product.id &&
-              isIdentical(item.options, selected.options)
+              isIdentical(item.options, selected.options),
           )!;
           if (quantity === 0) {
             res.splice(cart.indexOf(editing), 1);
@@ -71,7 +71,7 @@ export const ProductPicker: FC<ProductPickerProps> = ({
               (item, i) =>
                 i !== cart.indexOf(editing) &&
                 item.product.id === product.id &&
-                isIdentical(item.options, options)
+                isIdentical(item.options, options),
             )!;
             res.splice(cart.indexOf(editing), 1, {
               ...editing,
@@ -87,7 +87,7 @@ export const ProductPicker: FC<ProductPickerProps> = ({
           const existed = cart.find(
             (item) =>
               item.product.id === product.id &&
-              isIdentical(item.options, options)
+              isIdentical(item.options, options),
           );
           if (existed) {
             res.splice(cart.indexOf(existed), 1, {
@@ -135,30 +135,30 @@ export const ProductPicker: FC<ProductPickerProps> = ({
                   product.variants.map((variant) =>
                     variant.type === "single" ? (
                       <SingleOptionPicker
-                        key={variant.key}
+                        key={variant.id}
                         variant={variant}
-                        value={options[variant.key] as string}
+                        value={options[variant.id] as string}
                         onChange={(selectedOption) =>
                           setOptions((prevOptions) => ({
                             ...prevOptions,
-                            [variant.key]: selectedOption,
+                            [variant.id]: selectedOption,
                           }))
                         }
                       />
                     ) : (
                       <MultipleOptionPicker
-                        key={variant.key}
+                        key={variant.id}
                         product={product}
                         variant={variant}
-                        value={options[variant.key] as string[]}
+                        value={options[variant.id] as string[]}
                         onChange={(selectedOption) =>
                           setOptions((prevOptions) => ({
                             ...prevOptions,
-                            [variant.key]: selectedOption,
+                            [variant.id]: selectedOption,
                           }))
                         }
                       />
-                    )
+                    ),
                   )}
                 <QuantityPicker value={quantity} onChange={setQuantity} />
                 {selected ? (
@@ -189,7 +189,7 @@ export const ProductPicker: FC<ProductPickerProps> = ({
             </Box>
           )}
         </Sheet>,
-        document.body
+        document.body,
       )}
     </>
   );
