@@ -14,10 +14,10 @@ export const MultipleOptionPicker: FC<{
       <Text.Title size="small">{variant.label}</Text.Title>
       <Checkbox.Group
         className="flex flex-col space-y-2"
-        name={variant.key}
+        name={variant.id}
         options={variant.options.map((option) => ({
           className: "last-of-type:mr-2",
-          value: option.key,
+          value: option.id,
           label: (
             <div className="w-full">
               <span className="flex-1">{option.label}</span>

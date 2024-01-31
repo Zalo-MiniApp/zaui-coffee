@@ -12,7 +12,7 @@ export const Inquiry: FC = () => {
     debounce((keyword: string) => {
       setKeyword(keyword);
     }, 500),
-    []
+    [],
   );
 
   return (

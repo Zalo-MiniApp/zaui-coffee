@@ -87,6 +87,8 @@ Folder structure:
   - **`global.d.ts`**: Contains TypeScript declarations for third-party modules and global objects.
   - **`state.ts`**: State management, containing Recoil's atoms and selectors (https://recoiljs.org/docs/introduction/getting-started#atom).
 
+- **`mock`**: Example data as \*.json files.
+
 - **`app-config.json`**: Global configuration for your Mini App (https://mini.zalo.me/docs/framework/getting-started/app-config).
 
 The other files (such as `tailwind.config.js`, `vite.config.ts`, `tsconfig.json`, `postcss.config.js`) are configurations for libraries used in your application. Visit the library's documentation to learn how to use them.
@@ -118,6 +120,8 @@ You can customizations primary colors and currency displays using [Zalo Mini App
 ### Load product list from server
 
 <img src="./docs/products-fetching.webp" alt="Products fetching" width="250" align="right">
+
+For a simple MVP, you can put in your store products and categories as simply as making changes to `mock/*.json` files. However, a typical application would likely need to fetch data over REST API.
 
 To make an HTTP GET request to your server and fetch the product list, update the `productsState` selector in src/state.ts to use `fetch`.
 

@@ -1,12 +1,12 @@
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import reactRefresh from "@vitejs/plugin-react-refresh";
+import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default () => {
   return defineConfig({
     root: "./src",
     base: "",
-    plugins: [tsconfigPaths(), reactRefresh()],
+    plugins: [tsconfigPaths(), react()],
   });
 };

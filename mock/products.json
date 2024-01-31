@@ -1,0 +1,113 @@
+[
+  {
+    "id": 1,
+    "name": "Caramel Latte",
+    "price": 35000,
+    "image": "https://zalo-miniapp.github.io/zaui-coffee/dummy/product-square-1.jpg",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee", "drinks"],
+    "variantId": ["size", "topping"]
+  },
+  {
+    "id": 2,
+    "name": "Mocha Frappuccino",
+    "price": 45000,
+    "image": "https://zalo-miniapp.github.io/zaui-coffee/dummy/product-square-2.jpg",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee"],
+    "variantId": ["size", "topping"]
+  },
+  {
+    "id": 3,
+    "name": "Grilled Pork Banh Mi",
+    "price": 30000,
+    "image": "https://zalo-miniapp.github.io/zaui-coffee/dummy/product-square-3.jpg",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["food", "bread"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 4,
+    "name": "Pizza",
+    "price": 28000,
+    "image": "https://zalo-miniapp.github.io/zaui-coffee/dummy/product-square-4.jpg",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["food"],
+    "variantId": ["size"]
+  },
+  {
+    "id": 5,
+    "name": "Vanilla Latte",
+    "price": 35000,
+    "image": "https://zalo-miniapp.github.io/zaui-coffee/dummy/product-square-5.jpg",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee", "matcha"],
+    "variantId": ["size", "topping"]
+  },
+  {
+    "id": 6,
+    "name": "Caramel Macchiato",
+    "price": 38000,
+    "image": "https://zalo-miniapp.github.io/zaui-coffee/dummy/product-square-6.jpg",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee", "milktea"],
+    "variantId": ["size", "topping"]
+  },
+  {
+    "id": 7,
+    "name": "Espresso",
+    "price": 32000,
+    "image": "https://zalo-miniapp.github.io/zaui-coffee/dummy/product-square-7.jpg",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee"],
+    "variantId": ["size", "topping"]
+  },
+  {
+    "id": 8,
+    "name": "Green Tea Latte",
+    "price": 25000,
+    "image": "https://zalo-miniapp.github.io/zaui-coffee/dummy/product-square-8.jpg",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["matcha"],
+    "variantId": ["size", "topping"]
+  },
+  {
+    "id": 9,
+    "name": "Bộ 3 Blue Corner Coffee siêu HOT",
+    "image": "https://zalo-miniapp.github.io/zaui-coffee/dummy/product-rect-1.jpg",
+    "price": 25000,
+    "sale": {
+      "type": "percent",
+      "percent": 0.2
+    },
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee", "milktea", "drinks"],
+    "variantId": ["size", "topping"]
+  },
+  {
+    "id": 10,
+    "name": "Combo Hi Tea Aroma",
+    "image": "https://zalo-miniapp.github.io/zaui-coffee/dummy/product-rect-2.jpg",
+    "price": 57000,
+    "sale": {
+      "type": "fixed",
+      "amount": 7000
+    },
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["coffee", "drinks"],
+    "variantId": ["size", "topping"]
+  },
+  {
+    "id": 11,
+    "name": "Milk Tea Combo",
+    "price": 55000,
+    "image": "https://zalo-miniapp.github.io/zaui-coffee/dummy/product-rect-3.jpg",
+    "description": "There is a set of mock banners available <u>here</u> in three colours and in a range of standard banner sizes",
+    "categoryId": ["milktea"],
+    "variantId": ["size", "topping"],
+    "sale": {
+      "type": "percent",
+      "percent": 0.5
+    }
+  }
+]

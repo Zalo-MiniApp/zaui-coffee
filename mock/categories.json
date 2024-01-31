@@ -1,0 +1,37 @@
+[
+  {
+    "id": "coffee",
+    "name": "Cà phê",
+    "icon": "https://zalo-miniapp.github.io/zaui-coffee/dummy/category-coffee.svg"
+  },
+  {
+    "id": "matcha",
+    "name": "Trà xanh",
+    "icon": "https://zalo-miniapp.github.io/zaui-coffee/dummy/category-matcha.svg"
+  },
+  {
+    "id": "food",
+    "name": "Đồ ăn vặt",
+    "icon": "https://zalo-miniapp.github.io/zaui-coffee/dummy/category-food.svg"
+  },
+  {
+    "id": "milktea",
+    "name": "Trà sữa",
+    "icon": "https://zalo-miniapp.github.io/zaui-coffee/dummy/category-milktea.svg"
+  },
+  {
+    "id": "drinks",
+    "name": "Giải khát",
+    "icon": "https://zalo-miniapp.github.io/zaui-coffee/dummy/category-drinks.svg"
+  },
+  {
+    "id": "bread",
+    "name": "Bánh mỳ",
+    "icon": "https://zalo-miniapp.github.io/zaui-coffee/dummy/category-bread.svg"
+  },
+  {
+    "id": "juice",
+    "name": "Nước ép",
+    "icon": "https://zalo-miniapp.github.io/zaui-coffee/dummy/category-juice.svg"
+  }
+]

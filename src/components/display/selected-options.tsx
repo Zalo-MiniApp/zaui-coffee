@@ -11,27 +11,27 @@ export const DisplaySelectedOptions: FC<{
     if (children.variants) {
       const selectedVariants = Object.keys(options);
       children.variants
-        .filter((v) => selectedVariants.includes(v.key))
+        .filter((v) => selectedVariants.includes(v.id))
         .forEach((variant) => {
           if (variant.type === "single") {
             const selectedOption = variant.options.find(
-              (o) => o.key === options[variant.key]
+              (o) => o.id === options[variant.id],
             );
             if (selectedOption) {
               variants.push(
-                `${variant.label || variant.key}: ${
-                  selectedOption.label || selectedOption.key
-                }`
+                `${variant.label || variant.id}: ${
+                  selectedOption.label || selectedOption.id
+                }`,
               );
             }
           } else {
             const selectedOptions = variant.options.filter((o) =>
-              options[variant.key].includes(o.key)
+              options[variant.id].includes(o.id),
             );
             variants.push(
-              `${variant.label || variant.key}: ${selectedOptions
-                .map((o) => o.label || o.key)
-                .join(", ")}`
+              `${variant.label || variant.id}: ${selectedOptions
+                .map((o) => o.label || o.id)
+                .join(", ")}`,
             );
           }
         });
