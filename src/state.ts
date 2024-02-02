@@ -1,5 +1,11 @@
 import { atom, selector, selectorFamily } from "recoil";
-import { authorize, getLocation, getPhoneNumber, getUserInfo } from "zmp-sdk";
+import {
+  authorize,
+  getLocation,
+  getPhoneNumber,
+  getSetting,
+  getUserInfo,
+} from "zmp-sdk";
 import logo from "static/logo.png";
 import { Category } from "types/category";
 import { Product, Variant } from "types/product";
@@ -13,10 +19,12 @@ import categories from "../mock/categories.json";
 
 export const authorizedState = selector({
   key: "authorized",
-  get: () =>
-    authorize({
-      scopes: ["scope.userLocation", "scope.userPhonenumber"],
-    }),
+  get: async () => {
+    const { authSetting } = await getSetting({});
+    if (!authSetting["scope.userInfo"]) {
+      await authorize({ scopes: [] });
+    }
+  },
 });
 
 export const userState = selector({
