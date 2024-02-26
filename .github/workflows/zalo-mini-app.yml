@@ -16,7 +16,7 @@ on:
       - main
       - "feat/**"
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0,6,12,18 * * *"
 
 jobs:
   refresh_token:

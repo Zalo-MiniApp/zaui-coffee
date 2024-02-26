@@ -1,6 +1,8 @@
+import _ from "lodash";
 import { useEffect, useRef, useState } from "react";
 import { matchStatusBarColor } from "utils/device";
-import { useSnackbar } from "zmp-ui";
+import { EventName, events, Payment } from "zmp-sdk";
+import { useNavigate, useSnackbar } from "zmp-ui";
 
 export function useMatchStatusTextColor(visible?: boolean) {
   const changedRef = useRef(false);
@@ -30,6 +32,27 @@ export function useVirtualKeyboardVisible() {
 
   return visible;
 }
+
+export const useHandlePayment = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    events.on(EventName.OpenApp, (data) => {
+      if (data?.path) {
+        navigate(data?.path, {
+          state: data,
+        });
+      }
+    });
+
+    events.on(EventName.OnDataCallback, (data) => {
+      if (data.appTransID) {
+        navigate("/result", {
+          state: data,
+        });
+      }
+    });
+  }, []);
+};
 
 export function useToBeImplemented() {
   const snackbar = useSnackbar();
