@@ -44,10 +44,11 @@ export const useHandlePayment = () => {
       }
     });
 
-    events.on(EventName.OnDataCallback, (data) => {
-      if (data.appTransID) {
+    events.on(EventName.OnDataCallback, (resp) => {
+      const { appTransID, eventType } = resp;
+      if (appTransID || eventType === "PAY_BY_CUSTOM_METHOD") {
         navigate("/result", {
-          state: data,
+          state: resp,
         });
       }
     });

@@ -30,7 +30,7 @@
     "react-router-dom": "^6.8.2",
     "recoil": "^0.7.7",
     "swiper": "^9.1.0",
-    "zmp-sdk": "^2.35.3",
+    "zmp-sdk": "^2.37.1",
     "zmp-ui": "^1.6.0-rc.6"
   },
   "devDependencies": {
