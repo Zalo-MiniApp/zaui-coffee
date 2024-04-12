@@ -16,7 +16,7 @@ on:
       - main
       - "feat/**"
   schedule:
-    - cron: "0 0,6,12,18 * * *"
+    - cron: "0 0 * * *"
 
 jobs:
   refresh_token:
@@ -69,4 +69,4 @@ jobs:
         run: |
           echo "### Deployment success! :rocket:" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
-          echo "View your deployment result: [Version Management](https://mini.zalo.me/miniapp/${{ matrix.mini-app-id }}/versions)" >> $GITHUB_STEP_SUMMARY
+          echo "View your deployment result: [Version Management](https://mini.zalo.me/miniapp/${{ matrix.mini-app-id }}/versions/list)" >> $GITHUB_STEP_SUMMARY
