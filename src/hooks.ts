@@ -52,6 +52,13 @@ export const useHandlePayment = () => {
         });
       }
     });
+
+    events.on(EventName.PaymentClose, (data = {}) => {
+      const { zmpOrderId } = data;
+      navigate("/result", {
+        state: { data: { zmpOrderId } },
+      });
+    });
   }, []);
 };
 
