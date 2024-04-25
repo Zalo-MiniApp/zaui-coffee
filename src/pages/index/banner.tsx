@@ -17,7 +17,7 @@ export const Banner: FC = () => {
         cssMode
       >
         {[1, 2, 3, 4, 5]
-          .map((i) => getDummyImage(`banner-${i}.jpg`))
+          .map((i) => getDummyImage(`banner-${i}.webp`))
           .map((banner, i) => (
             <SwiperSlide key={i} className="px-4">
               <Box
