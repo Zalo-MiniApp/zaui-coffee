@@ -25,7 +25,7 @@ const CheckoutResultPage: FC = () => {
 
     const check = () => {
       Payment.checkTransaction({
-        data: "path" in state ? state.path : state?.data,
+        data: state && "path" in state ? state.path : state?.data,
         success: (rs) => {
           // Kết quả giao dịch khi gọi api thành công
           setPaymentResult(rs);
