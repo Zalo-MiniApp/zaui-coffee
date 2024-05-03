@@ -24,8 +24,18 @@ const CheckoutResultPage: FC = () => {
     let timeout;
 
     const check = () => {
+      let data = state;
+      if (data) {
+        if ("path" in data) {
+          data = data.path;
+        } else if ("data" in data) {
+          data = data.data;
+        }
+      } else {
+        data = new URL(window.location.href).searchParams.toString();
+      }
       Payment.checkTransaction({
-        data: state && "path" in state ? state.path : state?.data,
+        data,
         success: (rs) => {
           // Kết quả giao dịch khi gọi api thành công
           setPaymentResult(rs);
@@ -68,14 +78,18 @@ const CheckoutResultPage: FC = () => {
             if (paymentResult.resultCode === 0) {
               return render({
                 title: "Thanh toán đang được xử lý",
-                message: `Nhà bán hàng đã nhận được yêu cầu thanh toán của bạn và đang xử lý. Mã giao dịch: ${(paymentResult as CheckTransactionReturns).orderId}-${(paymentResult as CheckTransactionReturns).transId}`,
+                message: `Nhà bán hàng đã nhận được yêu cầu thanh toán của bạn và đang xử lý. Mã giao dịch: ${
+                  (paymentResult as CheckTransactionReturns).orderId
+                }-${(paymentResult as CheckTransactionReturns).transId}`,
                 color: "#F4AA39",
               });
             }
           }
           return render({
             title: "Thanh toán thất bại",
-            message: `Đã có lỗi xảy ra trong quá trình thanh toán, vui lòng thử lại sau! Mã lỗi: ${JSON.stringify((paymentResult as AsyncCallbackFailObject).code)}`,
+            message: `Đã có lỗi xảy ra trong quá trình thanh toán, vui lòng thử lại sau! Mã lỗi: ${JSON.stringify(
+              (paymentResult as AsyncCallbackFailObject).code
+            )}`,
             color: "#DC1F18",
           });
         })(({ title, message, color }: RenderResultProps) => (
