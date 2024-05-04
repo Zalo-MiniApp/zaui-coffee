@@ -7,6 +7,8 @@ import {
   Payment,
 } from "zmp-sdk";
 import { useLocation } from "react-router";
+import { useResetRecoilState } from "recoil";
+import { cartState } from "state";
 
 interface RenderResultProps {
   title: string;
@@ -58,8 +60,11 @@ const CheckoutResultPage: FC = () => {
     };
   }, []);
 
+  const clearCart = useResetRecoilState(cartState);
   useEffect(() => {
-    console.log({ paymentResult, state });
+    if (paymentResult?.resultCode >= 0) {
+      clearCart();
+    }
   }, [paymentResult]);
 
   if (paymentResult) {
