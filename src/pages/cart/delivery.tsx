@@ -5,8 +5,12 @@ import { Box, Icon, Input, Text } from "zmp-ui";
 import { PersonPicker, RequestPersonPickerPhone } from "./person-picker";
 import { RequestStorePickerLocation, StorePicker } from "./store-picker";
 import { TimePicker } from "./time-picker";
+import { useRecoilState } from "recoil";
+import { orderNoteState } from "state";
 
 export const Delivery: FC = () => {
+  const [note, setNote] = useRecoilState(orderNoteState);
+
   return (
     <Box className="space-y-3 px-4">
       <Text.Header>Hình thức nhận hàng</Text.Header>
@@ -50,6 +54,8 @@ export const Delivery: FC = () => {
                   placeholder="Nhập ghi chú..."
                   className="border-none px-0 w-full focus:outline-none"
                   maxRows={4}
+                  value={note}
+                  onChange={(e) => setNote(e.currentTarget.value)}
                 />
               </Box>
             ),

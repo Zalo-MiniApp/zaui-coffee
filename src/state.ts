@@ -53,9 +53,9 @@ export const productsState = selector<Product[]>({
         ({
           ...product,
           variants: variants.filter((variant) =>
-            product.variantId.includes(variant.id),
+            product.variantId.includes(variant.id)
           ),
-        }) as Product,
+        } as Product)
     );
   },
 });
@@ -80,7 +80,7 @@ export const productsByCategoryState = selectorFamily<Product[], string>({
     ({ get }) => {
       const allProducts = get(productsState);
       return allProducts.filter((product) =>
-        product.categoryId.includes(categoryId),
+        product.categoryId.includes(categoryId)
       );
     },
 });
@@ -105,7 +105,7 @@ export const totalPriceState = selector({
     return cart.reduce(
       (total, item) =>
         total + item.quantity * calcFinalPrice(item.product, item.options),
-      0,
+      0
     );
   },
 });
@@ -144,7 +144,7 @@ export const resultState = selector<Product[]>({
     const products = get(productsState);
     await wait(500);
     return products.filter((product) =>
-      product.name.trim().toLowerCase().includes(keyword.trim().toLowerCase()),
+      product.name.trim().toLowerCase().includes(keyword.trim().toLowerCase())
     );
   },
 });
@@ -211,13 +211,13 @@ export const nearbyStoresState = selector({
           location.latitude,
           location.longitude,
           store.lat,
-          store.long,
+          store.long
         ),
       }));
 
       // Sort the stores by distance from the current location
       const nearbyStores = storesWithDistance.sort(
-        (a, b) => a.distance - b.distance,
+        (a, b) => a.distance - b.distance
       );
 
       return nearbyStores;
@@ -271,11 +271,11 @@ export const locationState = selector<
       if (token) {
         console.warn(
           "Sử dụng token này để truy xuất vị trí chính xác của người dùng",
-          token,
+          token
         );
         console.warn(
           "Chi tiết tham khảo: ",
-          "https://mini.zalo.me/blog/thong-bao-thay-doi-luong-truy-xuat-thong-tin-nguoi-dung-tren-zalo-mini-app",
+          "https://mini.zalo.me/blog/thong-bao-thay-doi-luong-truy-xuat-thong-tin-nguoi-dung-tren-zalo-mini-app"
         );
         console.warn("Giả lập vị trí mặc định: VNG Campus");
         return {
@@ -299,15 +299,20 @@ export const phoneState = selector<string | boolean>({
       }
       console.warn(
         "Sử dụng token này để truy xuất số điện thoại của người dùng",
-        token,
+        token
       );
       console.warn(
         "Chi tiết tham khảo: ",
-        "https://mini.zalo.me/blog/thong-bao-thay-doi-luong-truy-xuat-thong-tin-nguoi-dung-tren-zalo-mini-app",
+        "https://mini.zalo.me/blog/thong-bao-thay-doi-luong-truy-xuat-thong-tin-nguoi-dung-tren-zalo-mini-app"
       );
       console.warn("Giả lập số điện thoại mặc định: 0337076898");
       return "0337076898";
     }
     return false;
   },
+});
+
+export const orderNoteState = atom({
+  key: "orderNote",
+  default: "",
 });
