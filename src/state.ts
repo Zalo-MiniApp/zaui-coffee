@@ -1,11 +1,5 @@
 import { atom, selector, selectorFamily } from "recoil";
-import {
-  authorize,
-  getLocation,
-  getPhoneNumber,
-  getSetting,
-  getUserInfo,
-} from "zmp-sdk";
+import { getLocation, getPhoneNumber, getUserInfo } from "zmp-sdk";
 import logo from "static/logo.png";
 import { Category } from "types/category";
 import { Product, Variant } from "types/product";
@@ -17,22 +11,19 @@ import { calcFinalPrice } from "utils/product";
 import { wait } from "utils/async";
 import categories from "../mock/categories.json";
 
-export const authorizedState = selector({
-  key: "authorized",
-  get: async () => {
-    const { authSetting } = await getSetting({});
-    if (!authSetting["scope.userInfo"]) {
-      await authorize({ scopes: [] });
-    }
-  },
-});
-
 export const userState = selector({
   key: "user",
-  get: async ({ get }) => {
-    get(authorizedState);
-    const { userInfo } = await getUserInfo({ avatarType: "small" });
-    return userInfo;
+  get: async () => {
+    try {
+      const { userInfo } = await getUserInfo({ autoRequestPermission: true });
+      return userInfo;
+    } catch (error) {
+      return {
+        id: "",
+        avatar: "",
+        name: "Người dùng Zalo",
+      };
+    }
   },
 });
 
