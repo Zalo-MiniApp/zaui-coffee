@@ -26,13 +26,20 @@ Public template for building a coffee shop on Zalo Mini App. Main features:
 
 ## Setup
 
+### Using Zalo Mini App Extension
+
+1. Install [Visual Studio Code](https://code.visualstudio.com/download) and [Zalo Mini App Extension](https://mini.zalo.me/docs/dev-tools).
+1. Click on **Create Project** > Choose **ZaUI Coffee** template > Wait until the generated project is ready.
+1. **Configure App ID** and **Install Dependencies**, then navigate to the **Run** panel > **Start** to develop your Mini App 🚀
+
+
 ### Using Zalo Mini App Studio
 
 1. [Install Zalo Mini App Studio](https://mini.zalo.me/docs/dev-tools)
 1. Click on New project > Enter your Mini App ID > Choose ZaUI Coffee template
 1. Wait until the generated project is ready and click the Start button to run the mini app 🚀
 
-### Using Visual Studio Code
+### Using Zalo Mini App CLI
 
 1. [Install Node JS](https://nodejs.org/en/download/)
 1. [Install Mini App DevTools CLI](https://mini.zalo.me/docs/dev-tools/cli/intro/)
@@ -53,12 +60,12 @@ Public template for building a coffee shop on Zalo Mini App. Main features:
 
 ## Deployment
 
-1. Create a mini program. For instruction on how to create a mini program, please refer to [Coffee Shop Tutorial](https://mini.zalo.me/docs/tutorial/step-1/#1-tạo-một-ứng-dụng-zalo-mini-program-mới-trên-trang-chủ-của-zalo-mini-program)
+1. Create a mini app. For instruction on how to create a mini app, please refer to [Coffee Shop Tutorial](https://mini.zalo.me/tutorial/coffee-shop)
 
 1. Setup payment methods if you want to accept online payments
    ![](./docs/payment.png "Payment method")
 
-1. Deploy your mini program to Zalo using the mini app ID created in step 1.
+1. Deploy your mini app to Zalo using the mini app ID created in step 1.
 
    If you're using `zmp-cli`:
 
@@ -67,7 +74,7 @@ Public template for building a coffee shop on Zalo Mini App. Main features:
    zmp deploy
    ```
 
-1. Scan the QR code using Zalo to preview your mini program.
+1. Scan the QR code using Zalo to preview your mini app.
 
 ## Usage:
 
@@ -79,17 +86,17 @@ Folder structure:
 
   - **`components`**: Reusable components written in React.JS.
   - **`css`**: Stylesheets; pre-processors are also supported.
-  - **`pages`**: A Page is also a component but will act as an entire view and must be registered inside `app.tsx` as a Route (https://mini.zalo.me/docs/zaui/components/router/ZMPRouter/).
+  - **`pages`**: A Page is also a component but will act as an entire view and must be registered inside `app.tsx` as a [Route](https://mini.zalo.me/docs/zaui/router/ZMPRouter/).
   - **`statics`**: SVG and images that should be imported directly into bundle source code.
   - **`types`**: Contains TypeScript type and interface declarations.
   - **`utils`**: Reusable utility functions, such as distance calculation, date and time format, etc.
   - **`app.ts`**: Entry point of your Mini App.
   - **`global.d.ts`**: Contains TypeScript declarations for third-party modules and global objects.
-  - **`state.ts`**: State management, containing Recoil's atoms and selectors (https://recoiljs.org/docs/introduction/getting-started#atom).
+  - **`state.ts`**: State management, containing [Recoil](https://recoiljs.org/docs/introduction/getting-started#atom)'s atoms and selectors.
 
 - **`mock`**: Example data as \*.json files.
 
-- **`app-config.json`**: Global configuration for your Mini App (https://mini.zalo.me/docs/framework/getting-started/app-config).
+- **`app-config.json`**: [Global configuration](https://mini.zalo.me/intro/getting-started/app-config/) for your Mini App.
 
 The other files (such as `tailwind.config.js`, `vite.config.ts`, `tsconfig.json`, `postcss.config.js`) are configurations for libraries used in your application. Visit the library's documentation to learn how to use them.
 
@@ -109,7 +116,7 @@ Just change the `app.title` property in `app-config.json`:
 
 ### Changing coffee shop's logo
 
-Visit [Zalo Mini Program](https://mini.zalo.me/) and go to your mini program's settings to change the logo.
+Visit [Zalo Mini App](https://mini.zalo.me/) and go to your mini app's settings to change the logo.
 
 ### Customizations
 
