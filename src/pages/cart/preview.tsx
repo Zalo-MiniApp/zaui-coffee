@@ -1,13 +1,14 @@
 import { DisplayPrice } from "components/display/price";
+import { usePayment } from "hooks";
 import React, { FC } from "react";
 import { useRecoilValue } from "recoil";
 import { totalPriceState, totalQuantityState } from "state";
-import pay from "utils/product";
 import { Box, Button, Text } from "zmp-ui";
 
 export const CartPreview: FC = () => {
   const quantity = useRecoilValue(totalQuantityState);
   const totalPrice = useRecoilValue(totalPriceState);
+  const pay = usePayment();
 
   return (
     <Box flex className="sticky bottom-0 bg-background p-4 space-x-4">
@@ -28,7 +29,12 @@ export const CartPreview: FC = () => {
         type="highlight"
         disabled={!quantity}
         fullWidth
-        onClick={() => pay(totalPrice)}
+        onClick={() =>
+          pay({
+            amount: totalPrice,
+            desc: "Thanh toán đơn hàng",
+          })
+        }
       >
         Đặt hàng
       </Button>

@@ -30,7 +30,6 @@ export type TabKeys = keyof typeof tabs;
 export const NO_BOTTOM_NAVIGATION_PAGES = ["/search", "/category", "/result"];
 
 export const Navigation: FC = () => {
-  const [activeTab, setActiveTab] = useState<TabKeys>("/");
   const keyboardVisible = useVirtualKeyboardVisible();
   const navigate = useNavigate();
   const location = useLocation();
@@ -46,8 +45,8 @@ export const Navigation: FC = () => {
   return (
     <BottomNavigation
       id="footer"
-      activeKey={activeTab}
-      onChange={(key: TabKeys) => setActiveTab(key)}
+      activeKey={location.pathname}
+      onChange={navigate}
       className="z-50"
     >
       {Object.keys(tabs).map((path: TabKeys) => (
@@ -56,7 +55,6 @@ export const Navigation: FC = () => {
           label={tabs[path].label}
           icon={tabs[path].icon}
           activeIcon={tabs[path].activeIcon}
-          onClick={() => navigate(path)}
         />
       ))}
     </BottomNavigation>

@@ -1,5 +1,10 @@
 import { atom, selector, selectorFamily } from "recoil";
-import { getLocation, getPhoneNumber, getUserInfo } from "zmp-sdk";
+import {
+  getLocation,
+  getPhoneNumber,
+  getUserInfo,
+  SelectPaymentMethodReturns,
+} from "zmp-sdk";
 import logo from "static/logo.png";
 import { Category } from "types/category";
 import { Product, Variant } from "types/product";
@@ -306,4 +311,9 @@ export const phoneState = selector<string | boolean>({
 export const orderNoteState = atom({
   key: "orderNote",
   default: "",
+});
+
+export const paymentState = atom<SelectPaymentMethodReturns | false>({
+  key: "payment",
+  default: false,
 });

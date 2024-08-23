@@ -1,7 +1,9 @@
 import _ from "lodash";
 import { useEffect, useRef, useState } from "react";
+import { useRecoilCallback } from "recoil";
+import { paymentState } from "state";
 import { matchStatusBarColor } from "utils/device";
-import { EventName, events, Payment } from "zmp-sdk";
+import { CheckoutSDK, EventName, events } from "zmp-sdk";
 import { useNavigate, useSnackbar } from "zmp-ui";
 
 export function useMatchStatusTextColor(visible?: boolean) {
@@ -69,4 +71,43 @@ export function useToBeImplemented() {
       type: "success",
       text: "Chức năng dành cho các bên tích hợp phát triển...",
     });
+}
+
+export function usePayment() {
+  const snackbar = useSnackbar();
+  const navigate = useNavigate();
+  const getPaymentMethod = useRecoilCallback(
+    ({ snapshot }) =>
+      () =>
+        snapshot.getPromise(paymentState),
+    []
+  );
+
+  return async (params: { amount: number; desc: string }) => {
+    try {
+      const method = await getPaymentMethod();
+      if (method) {
+        const { orderId } = await CheckoutSDK.purchase({
+          ...params,
+          method: method.method,
+        });
+        navigate("/result", {
+          state: { orderId },
+        });
+      } else {
+        snackbar.openSnackbar({
+          type: "error",
+          text: "Vui lòng chọn phương thức thanh toán.",
+        });
+      }
+    } catch (error: any) {
+      console.warn(error);
+      if (error.code !== -201) {
+        snackbar.openSnackbar({
+          type: "error",
+          text: "Đã có lỗi xảy ra trong quá trình thanh toán. Vui lòng kiểm tra nội dung thông báo lỗi trong cửa sổ console.",
+        });
+      }
+    }
+  };
 }

@@ -7,6 +7,7 @@ import { RequestStorePickerLocation, StorePicker } from "./store-picker";
 import { TimePicker } from "./time-picker";
 import { useRecoilState } from "recoil";
 import { orderNoteState } from "state";
+import { PaymentMethodPicker } from "./payment-method-picker";
 
 export const Delivery: FC = () => {
   const [note, setNote] = useRecoilState(orderNoteState);
@@ -25,26 +26,16 @@ export const Delivery: FC = () => {
             ),
           },
           {
-            left: <Icon icon="zi-clock-1" className="my-auto" />,
-            right: (
-              <Box flex className="space-x-2">
-                <Box className="flex-1 space-y-[2px]">
-                  <TimePicker />
-                  <Text size="xSmall" className="text-gray">
-                    Thời gian nhận hàng
-                  </Text>
-                </Box>
-                <Icon icon="zi-chevron-right" />
-              </Box>
-            ),
-          },
-          {
             left: <Icon icon="zi-user" className="my-auto" />,
             right: (
               <Suspense fallback={<RequestPersonPickerPhone />}>
                 <PersonPicker />
               </Suspense>
             ),
+          },
+          {
+            left: <Icon icon="zi-note" className="my-auto" />,
+            right: <PaymentMethodPicker />,
           },
           {
             left: <Icon icon="zi-note" className="my-auto" />,

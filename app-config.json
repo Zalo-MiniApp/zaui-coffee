@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "ZaUI Coffee",
+    "title": "ZaUI Café",
     "headerColor": "",
     "textColor": "black",
     "statusBarColor": "#ffffff",
@@ -15,13 +15,7 @@
   "listCSS": [],
   "listSyncJS": [],
   "listAsyncJS": [],
-  "pages": [
-    "/user",
-    "/form",
-    "/dynamic-route",
-    "/about",
-    "/404"
-  ],
+  "pages": ["/user", "/form", "/dynamic-route", "/about", "/404"],
   "template": {
     "primaryColor": "#006af5",
     "prefixCurrencySymbol": false,
