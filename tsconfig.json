@@ -33,7 +33,10 @@
     "removeComments": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "types": [
+      "vite/client"
+    ]
   },
   "exclude": [
     "node_modules"

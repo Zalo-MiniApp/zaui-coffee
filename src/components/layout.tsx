@@ -13,14 +13,15 @@ import { getSystemInfo } from "zmp-sdk";
 import { ScrollRestoration } from "./scroll-restoration";
 import { useHandlePayment } from "hooks";
 
-if (getSystemInfo().platform === "android") {
-  const androidSafeTop = Math.round(
-    (window as any).ZaloJavaScriptInterface.getStatusBarHeight() /
-      window.devicePixelRatio,
-  );
+if (import.meta.env.DEV) {
+  document.body.style.setProperty("--zaui-safe-area-inset-top", "24px");
+} else if (getSystemInfo().platform === "android") {
+  const statusBarHeight =
+    window.ZaloJavaScriptInterface?.getStatusBarHeight() ?? 0;
+  const androidSafeTop = Math.round(statusBarHeight / window.devicePixelRatio);
   document.body.style.setProperty(
     "--zaui-safe-area-inset-top",
-    `${androidSafeTop}px`,
+    `${androidSafeTop}px`
   );
 }
 
