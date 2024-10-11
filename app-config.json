@@ -23,6 +23,7 @@
     "/404"
   ],
   "template": {
+    "name": "zaui-coffee",
     "primaryColor": "#006af5",
     "prefixCurrencySymbol": false,
     "currencySymbol": "đ",
