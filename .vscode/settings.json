@@ -1,0 +1,43 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["app-config.json"],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "template": {
+            "description": "Cấu hình riêng của template ZaUI Coffee",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "enum": ["zaui-coffee"],
+                "description": "Tên template. Bắt buộc phải mang giá trị zaui-coffee"
+              },
+              "headerLogo": {
+                "type": "string",
+                "description": "Đường dẫn tuyệt đối, bắt buộc phải có \"https://\". Nếu bạn muốn sử dụng logo của Mini App, bạn có thể lấy đường dẫn bằng cách truy cập trang quản lý ứng dụng trên mini.zalo.me, rồi nhấn chuột phải vào logo và chọn \"Copy Image Address\"."
+              },
+              "primaryColor": {
+                "type": "string",
+                "description": "Màu chủ đạo (áp dụng cho nút, liên kết, biểu tượng,...)",
+                "pattern": "^#([A-Fa-f0-9]{6})$"
+              },
+              "currencySymbol": {
+                "type": "string",
+                "description": "Đơn vị tiền tệ.",
+                "default": "đ"
+              },
+              "prefixCurrencySymbol": {
+                "type": "boolean",
+                "description": "Bật lên đối với các đơn vị tiền tệ mà ký hiệu cần phải được đặt trước số tiền (ví dụ: $5). Hoặc giữ nguyên nếu ký hiệu cần đặt sau số tiền (ví dụ: 500đ).",
+                "default": false
+              }
+            },
+            "required": ["name"]
+          }
+        }
+      }
+    }
+  ]
+}
