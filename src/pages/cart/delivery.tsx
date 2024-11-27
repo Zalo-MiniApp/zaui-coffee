@@ -40,11 +40,7 @@ export const Delivery: FC = () => {
           },
           {
             left: <Icon icon="zi-user" className="my-auto" />,
-            right: (
-              <Suspense fallback={<RequestPersonPickerPhone />}>
-                <PersonPicker />
-              </Suspense>
-            ),
+            right: <RequestPersonPickerPhone />,
           },
           {
             left: <Icon icon="zi-note" className="my-auto" />,

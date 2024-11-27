@@ -3,11 +3,23 @@ import { Box, Header, Icon, Page, Text } from "zmp-ui";
 import subscriptionDecor from "static/subscription-decor.svg";
 import { ListRenderer } from "components/list-renderer";
 import { useToBeImplemented } from "hooks";
+import { useRecoilCallback } from "recoil";
+import { userState } from "state";
 
 const Subscription: FC = () => {
-  const onClick = useToBeImplemented();
+  const requestUserInfo = useRecoilCallback(
+    ({ snapshot }) =>
+      async () => {
+        const userInfo = await snapshot.getPromise(userState);
+        console.warn("Các bên tích hợp có thể sử dụng userInfo ở đây...", {
+          userInfo,
+        });
+      },
+    []
+  );
+
   return (
-    <Box className="m-4" onClick={onClick}>
+    <Box className="m-4" onClick={requestUserInfo}>
       <Box
         className="bg-green text-white rounded-xl p-4 space-y-2"
         style={{
