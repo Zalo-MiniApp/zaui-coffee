@@ -1,10 +1,20 @@
-export function isToday(date: Date) {
-  const today = new Date();
+function areSameDay(date1: Date, date2: Date): boolean {
   return (
-    date.getFullYear() === today.getFullYear() &&
-    date.getMonth() === today.getMonth() &&
-    date.getDate() === today.getDate()
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
   );
+}
+
+export function isToday(date: Date): boolean {
+  const today = new Date();
+  return areSameDay(date, today);
+}
+
+export function isTomorrow(date: Date): boolean {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  return areSameDay(date, tomorrow);
 }
 
 export function displayTime(date: Date) {
@@ -25,6 +35,9 @@ export function displayDate(date: Date, hint?: boolean) {
   const year = date.getFullYear().toString();
   if (hint && isToday(date)) {
     return `Hôm nay - ${day}/${month}/${year}`;
+  }
+  if (hint && isTomorrow(date)) {
+    return `Ngày mai - ${day}/${month}/${year}`;
   }
   return `${day}/${month}/${year}`;
 }
