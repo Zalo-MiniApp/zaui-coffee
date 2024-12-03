@@ -5,6 +5,10 @@ import { displayDate, displayHalfAnHourTimeRange } from "utils/date";
 import { matchStatusBarColor } from "utils/device";
 import { Picker } from "zmp-ui";
 
+// Opening hours: 7:00 - 21:00
+const OPENING_HOUR = 7;
+const CLOSING_HOUR = 21;
+
 export const TimePicker: FC = () => {
   const [date, setDate] = useState(+new Date());
   const [time, setTime] = useRecoilState(selectedDeliveryTimeState);
@@ -12,7 +16,7 @@ export const TimePicker: FC = () => {
   const availableDates = useMemo(() => {
     const days: Date[] = [];
     const today = new Date();
-    for (let i = 0; i < 5; i++) {
+    for (let i = today.getHours() >= CLOSING_HOUR ? 1 : 0; i < 5; i++) {
       const nextDay = new Date(today);
       nextDay.setDate(today.getDate() + i);
       days.push(nextDay);
@@ -30,14 +34,13 @@ export const TimePicker: FC = () => {
       time.setHours(now.getHours());
       time.setMinutes(minutes);
     } else {
-      // Starting time is 7:00
-      time.setHours(7);
+      time.setHours(OPENING_HOUR);
       time.setMinutes(0);
     }
     time.setSeconds(0);
     time.setMilliseconds(0);
     const endTime = new Date();
-    endTime.setHours(21);
+    endTime.setHours(CLOSING_HOUR);
     endTime.setMinutes(0);
     endTime.setSeconds(0);
     endTime.setMilliseconds(0);
@@ -65,7 +68,7 @@ export const TimePicker: FC = () => {
       formatPickedValueDisplay={({ date, time }) =>
         date && time
           ? `${displayHalfAnHourTimeRange(new Date(time.value))}, ${displayDate(
-              new Date(date.value),
+              new Date(date.value)
             )}`
           : `Chọn thời gian`
       }
