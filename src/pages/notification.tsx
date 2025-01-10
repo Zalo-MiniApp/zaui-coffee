@@ -12,7 +12,7 @@ const NotificationList: FC = () => {
   
     useEffect(() => {
       setTimeout(() => {
-        navigate('/profile')
+        navigate('/category')
       }, 1000)
     })
 

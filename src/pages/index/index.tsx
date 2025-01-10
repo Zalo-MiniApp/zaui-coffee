@@ -8,9 +8,20 @@ import { Recommend } from "./recommend";
 import { ProductList } from "./product-list";
 import { Divider } from "components/divider";
 import { useNavigate } from 'react-router'
+import { configAppView } from "zmp-sdk";
 
 const HomePage: React.FunctionComponent = () => {
   const navigate = useNavigate()
+
+  useEffect(() => {
+    configAppView({
+      actionBar: {
+        title: "Danh mục",
+        leftButton: 'back',
+        hide: false,
+      }
+    })
+  }, [])
 
   return (
     <Page className="relative flex-1 flex flex-col bg-white">
@@ -19,7 +30,7 @@ const HomePage: React.FunctionComponent = () => {
         <Inquiry />
         <Banner />
       <Button onClick={() => {
-        navigate('/profile')
+        navigate('/category')
       }}>Đến profile</Button>
         <Suspense>
           <Categories />

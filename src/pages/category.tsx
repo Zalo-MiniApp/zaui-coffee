@@ -1,11 +1,12 @@
 import { ProductItem } from "components/product/item";
-import React, { FC, Suspense } from "react";
+import React, { FC, Suspense, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import {
   categoriesState,
   productsByCategoryState,
   selectedCategoryIdState,
 } from "state";
+import { configAppView } from "zmp-sdk";
 import { Box, Header, Page, Tabs, Text } from "zmp-ui";
 
 const CategoryPicker: FC = () => {
@@ -52,6 +53,7 @@ const CategoryProducts: FC<{ categoryId: string }> = ({ categoryId }) => {
 };
 
 const CategoryPage: FC = () => {
+
   return (
     <Page className="flex flex-col">
       <Header title="Danh mục" />
