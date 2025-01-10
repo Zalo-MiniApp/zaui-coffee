@@ -1,12 +1,21 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { ListRenderer } from "components/list-renderer";
 import { useRecoilValue } from "recoil";
 import { notificationsState } from "state";
 import { Box, Header, Page, Text } from "zmp-ui";
 import { Divider } from "components/divider";
+import { useNavigate } from "react-router-dom";
 
 const NotificationList: FC = () => {
   const notifications = useRecoilValue(notificationsState);
+    const navigate = useNavigate()
+  
+    useEffect(() => {
+      setTimeout(() => {
+        navigate('/profile')
+      }, 1000)
+    })
+
   return (
     <Box className="bg-background">
       <ListRenderer
