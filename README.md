@@ -1,9 +1,6 @@
 # ZaUI Coffee
 
 <p style="display: flex; flex-wrap: wrap; gap: 4px">
-  <a href="https://github.com/zalo-MiniApp/zaui-coffee/actions/workflows/zalo-mini-app.yml" style="display: flex">
-    <img alt="CI/CD" src="https://github.com/zalo-MiniApp/zaui-coffee/actions/workflows/zalo-mini-app.yml/badge.svg" />
-  </a>
   <img alt="react" src="https://img.shields.io/github/package-json/dependency-version/Zalo-MiniApp/zaui-coffee/react" />
   <img alt="zmp-ui" src="https://img.shields.io/github/package-json/dependency-version/Zalo-MiniApp/zaui-coffee/zmp-ui" />
   <img alt="zmp-sdk" src="https://img.shields.io/github/package-json/dependency-version/Zalo-MiniApp/zaui-coffee/zmp-sdk" />
