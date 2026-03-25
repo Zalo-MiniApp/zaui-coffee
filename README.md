@@ -25,21 +25,14 @@ Public template for building a coffee shop on Zalo Mini App. Main features:
 
 ### Using Zalo Mini App Extension
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/download) and [Zalo Mini App Extension](https://mini.zalo.me/docs/dev-tools).
+1. Install [Visual Studio Code](https://code.visualstudio.com/download) and [Zalo Mini App Extension](https://miniapp.zaloplatforms.com/documents/devtools).
 1. Click on **Create Project** > Choose **ZaUI Coffee** template > Wait until the generated project is ready.
 1. **Configure App ID** and **Install Dependencies**, then navigate to the **Run** panel > **Start** to develop your Mini App 🚀
-
-
-### Using Zalo Mini App Studio
-
-1. [Install Zalo Mini App Studio](https://mini.zalo.me/docs/dev-tools)
-1. Click on New project > Enter your Mini App ID > Choose ZaUI Coffee template
-1. Wait until the generated project is ready and click the Start button to run the mini app 🚀
 
 ### Using Zalo Mini App CLI
 
 1. [Install Node JS](https://nodejs.org/en/download/)
-1. [Install Mini App DevTools CLI](https://mini.zalo.me/docs/dev-tools/cli/intro/)
+1. [Install Mini App DevTools CLI](https://miniapp.zaloplatforms.com/documents/devtools/cli/intro/)
 1. Download or clone this repository
 1. Install dependencies
 
@@ -57,7 +50,7 @@ Public template for building a coffee shop on Zalo Mini App. Main features:
 
 ## Deployment
 
-1. Create a mini app. For instruction on how to create a mini app, please refer to [Coffee Shop Tutorial](https://mini.zalo.me/tutorial/coffee-shop)
+1. Create a mini app. For instruction on how to create a mini app, please refer to [Coffee Shop Tutorial](https://miniapp.zaloplatforms.com/documents/tutorial/coffee-shop)
 
 1. Setup payment methods if you want to accept online payments
    ![](./docs/payment.png "Payment method")
@@ -83,7 +76,7 @@ Folder structure:
 
   - **`components`**: Reusable components written in React.JS.
   - **`css`**: Stylesheets; pre-processors are also supported.
-  - **`pages`**: A Page is also a component but will act as an entire view and must be registered inside `app.tsx` as a [Route](https://mini.zalo.me/docs/zaui/router/ZMPRouter/).
+  - **`pages`**: A Page is also a component but will act as an entire view and must be registered inside `app.tsx` as a [Route](https://miniapp.zaloplatforms.com/documents/zaui/router/ZMPRouter/).
   - **`statics`**: SVG and images that should be imported directly into bundle source code.
   - **`types`**: Contains TypeScript type and interface declarations.
   - **`utils`**: Reusable utility functions, such as distance calculation, date and time format, etc.
@@ -93,7 +86,7 @@ Folder structure:
 
 - **`mock`**: Example data as \*.json files.
 
-- **`app-config.json`**: [Global configuration](https://mini.zalo.me/intro/getting-started/app-config/) for your Mini App.
+- **`app-config.json`**: [Global configuration](https://miniapp.zaloplatforms.com/documents/intro/getting-started/app-config/) for your Mini App.
 
 The other files (such as `tailwind.config.js`, `vite.config.ts`, `tsconfig.json`, `postcss.config.js`) are configurations for libraries used in your application. Visit the library's documentation to learn how to use them.
 
@@ -113,13 +106,7 @@ Just change the `app.title` property in `app-config.json`:
 
 ### Changing coffee shop's logo
 
-Visit [Zalo Mini App](https://mini.zalo.me/) and go to your mini app's settings to change the logo.
-
-### Customizations
-
-You can customizations primary colors and currency displays using [Zalo Mini App Studio](https://mini.zalo.me/docs/dev-tools):
-
-![Customizations](./docs/customizations.webp)
+Visit [Zalo Mini App]([https://mini.zalo.me/](https://miniapp.zaloplatforms.com/)) and go to your mini app's settings to change the logo.
 
 ### Load product list from server
 
