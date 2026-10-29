@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "start": "zmp start",
+    "build": "vite build . --outDir www --emptyOutDir",
     "deploy": "zmp deploy",
     "build:css": "postcss src/css/tailwind.css -o src/css/styles.css"
   },
@@ -27,11 +28,11 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.2",
+    "react-router-dom": "^7.18.0",
     "recoil": "^0.7.7",
     "swiper": "^9.1.0",
-    "zmp-sdk": "^2.39.9",
-    "zmp-ui": "^1.11.5"
+    "zmp-sdk": "^2.53.3",
+    "zmp-ui": "^1.11.15-2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
@@ -39,10 +40,10 @@
     "@types/react-router-dom": "^5.3.3",
     "autoprefixer": "^10.4.13",
     "cross-env": "^7.0.3",
-    "postcss": "^8.4.21",
+    "postcss": "^8.5.6",
     "postcss-aspect-ratio-polyfill": "^2.0.0",
-    "postcss-cli": "^8.3.1",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-cli": "^11.0.1",
+    "postcss-preset-env": "^10.0.2",
     "sass": "^1.58.3",
     "tailwindcss": "^3.4.10",
     "vite": "^5.4.21",
